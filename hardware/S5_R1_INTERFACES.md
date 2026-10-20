@@ -76,6 +76,15 @@ interrupt the controller; the public MCP tools do not expose GPIO programming.
 
 ## PCB/connector context
 
+Page 10 of the [R1 repair manual](https://um-support-files.ultimaker.com/manuals/repair-calibration/S-series/UMS5R1%20-%20Electronics.pdf)
+provides additional photographic trace targets: `J28` is labeled `UMBus` and
+neighboring `J13` is labeled `NFC`. `U9` is near the UMB connector; its identity
+and connections are not established by this photo. Internal labels include
+`A_UART0`, `A_UART2`, `A_UART3`, `OLI_CAN`, `OLI_IR` and `OLI_UEXT` on headers or
+footprints. Population varies. These labels do not prove software ownership,
+voltage, spare availability, connector pin order or a CAN implementation of UMB.
+Use them to plan power-isolated continuity/component identification, not wiring.
+
 The manufacturer's repair reference identifies connections for the heated bed,
 PT100 sensor, motion/extrusion motors, endstops, filament flow, printhead, system
 fans, lighting, speaker and Olimex display/USB/network functions. It locates the
