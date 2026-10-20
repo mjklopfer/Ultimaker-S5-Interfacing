@@ -1,4 +1,4 @@
-# Miscellaneous hardware and service notes
+# Hardware service references
 
 These are research notes, with evidence and unresolved boundaries stated per
 topic. They are not additional implemented MCP tools or validated repair procedures.
