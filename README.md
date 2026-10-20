@@ -52,6 +52,8 @@ MCP client --stdio--> Node MCP server --loopback token--> Cura plugin --> Cura
 
 See the [18-tool reference](docs/TOOLS.md), [tested versions](docs/TESTED.md),
 [known shortcomings and TODOs](docs/KNOWN_ISSUES.md), and [security/privacy](SECURITY.md).
+The [observed Nylon baseline](docs/PRINTING_BASELINE.md) records a limited
+mid-print adhesion result and the settings associated with it.
 Hardware notes start at [S5 R1 interfaces](hardware/S5_R1_INTERFACES.md);
 the [UMB controller](hardware/umb-controller/README.md) is a separate offline draft.
 See [miscellaneous notes](hardware/MISC_NOTES.md) for print-core identity versus

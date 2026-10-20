@@ -2,6 +2,14 @@
 
 ## Cura bridge
 
+- [ ] Investigate intermittent HTTP 429 from the external MCP connector/SSE probe.
+  It occurred before a Cura/printer read could execute; a direct local printer
+  HTTP read succeeded. Identify the throttling layer, quota/concurrency conditions,
+  response headers and any Retry-After guidance using redacted diagnostics.
+  Determine suitable bounded backoff for reads; do not automatically replay
+  state-changing requests with uncertain outcomes. Root cause is unconfirmed,
+  and this is not evidence that the printer or bridge itself imposed the limit.
+
 - Only Cura 5.13.0 has a live desktop baseline. Public privacy/configuration changes
   have offline coverage; a fresh public-build desktop check is still required.
 - Native 3MF machine/material/settings conflict resolution can require Cura's UI.

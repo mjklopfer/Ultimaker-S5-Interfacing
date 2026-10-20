@@ -106,3 +106,29 @@ also asks for interface information without establishing CAN or a verified
 connector pin assignment. The photographed Material Station cable has circular
 multi-pin ends, not RJ45 Ethernet ends. UART framing observed in Linux does not
 by itself identify the external electrical line driver or its voltage.
+
+## S5 R1-specific recovery and serial references
+
+The manufacturer's [S5 R1 firmware-recovery guide](https://um-support-files.ultimaker.com/manuals/repair-calibration/S-Series-Firmware-Recovery/20200625%20Work%20instruction%20S5R1%20Firmware%20Recovery.pdf)
+describes microSD imaging and automatic recovery boot for the R1. It is an older
+guide referencing firmware 5.7.2, not a verified current-image recommendation.
+Recovery erases settings and requires recalibration. The current
+[general S-series recovery article](https://support.ultimaker.com/s/article/1877434822572)
+explicitly excludes R1 from its supplied recovery images and directs R1 owners to
+support for the model-specific precautions. Do not substitute an R2 or UM3 image.
+
+The firsthand [S5-oriented recovery notes](https://gr5.org/unbricking/) include
+a console-connection photograph, 115200-baud terminal guidance and boot-script
+failure discussion. The [pre-2020 S5 thread](https://community.ultimaker.com/topic/34825-s5-pre-2020-web-server-running-printers-not-accessible-582/)
+also discusses console access when network access is unavailable. These are
+community observations, not validation of this project's header wiring or restore
+procedure. No bare-metal restoration was tested here. Opening the R1 exposes
+mains circuitry; follow the manufacturer's model-specific service precautions.
+
+The older [232 Communication thread](https://community.ultimaker.com/topic/11480-232-communication/)
+concerns an Ultimaker Original+ and a modified Marlin serial selection at J22.
+It is not an S5 pinout or proof of RS-232 voltage levels. On the S5 R1, the saved
+device map distinguishes console ttyS0, motion ttyS2 and UMB ttyS1. A possible
+internal UART observation point before the external UMB interface is a hypothesis:
+pad/header routing, voltage and reset/chain-control requirements remain untraced.
+Do not equate header labels with Linux device numbers without tracing them.
