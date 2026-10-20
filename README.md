@@ -29,6 +29,8 @@ require validation; see [tested versions](docs/TESTED.md).
   the printer's own queue policy when idle.
 - Review original S5 R1 PCB/serial/GPIO notes and a disabled-by-default Arduino
   UMB accessory-controller draft.
+- Follow optional developer SSH procedures for Linux/service/device inspection,
+  D-Bus diagnostics and actual printer-touchscreen capture.
 
 Configure your printer address during deployment. See the
 [deployment guide](docs/DEPLOYMENT.md) for setup and connection requirements.
@@ -54,6 +56,9 @@ Hardware notes start at [S5 R1 interfaces](hardware/S5_R1_INTERFACES.md);
 the [UMB controller](hardware/umb-controller/README.md) is a separate offline draft.
 For optional printer-side screen capture and experimental UI input, see
 [developer-mode touchscreen access](docs/DEVELOPER_TOUCHSCREEN.md).
+The [SSH access and capabilities guide](docs/SSH_ACCESS.md) explains the broader
+Linux troubleshooting/maintenance access and its limits; SSH is not an additional
+implemented MCP tool.
 
 ## Requirements and checks
 

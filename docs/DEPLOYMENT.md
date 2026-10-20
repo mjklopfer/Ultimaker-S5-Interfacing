@@ -85,6 +85,10 @@ macOS uses Keychain; Windows uses Credential Manager. Linux has no secure pairin
 storage backend in this release; it can run mock tests and unpaired reads, but
 credential-dependent workflows require additional implementation.
 
+Optional Developer-mode SSH access is a separate channel for printer-side Linux
+inspection, D-Bus diagnostics and touchscreen capture. See [SSH capabilities](SSH_ACCESS.md).
+Normal Cura automation/HTTP access does not require an SSH shell.
+
 Do not test motion, heaters, network/firmware or job-changing writes on an active
 printer. A printer may schedule an uploaded job automatically according to its
 queue policy. Test Save As using a disposable Cura project and a new filename.

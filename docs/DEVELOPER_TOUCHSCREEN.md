@@ -4,6 +4,8 @@ This is an optional, advanced **printer-side SSH/D-Bus procedure**, separate fro
 the workstation Cura bridge and its 18 MCP tools. Reference: S5 R1,
 firmware 9.0.3.0. Qt/Okuda interfaces are firmware-dependent developer internals, not a
 supported general touchscreen HTTP API.
+For the broader Linux inspection and maintenance capabilities available after
+login, see [SSH access and capabilities](SSH_ACCESS.md).
 
 | Operation | Evidence |
 |---|---|
