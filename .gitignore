@@ -8,6 +8,7 @@ __pycache__/
 *connection*.json
 print_files/
 local_config/
+local_captures/
 dist/
 build/
 *.bin

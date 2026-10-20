@@ -88,6 +88,10 @@ and a related older board drawing favor an analog path, but exact R1 continuity
 and audible routing remain unresolved. No general-purpose AVR tone command was
 established. Do not present the absence of a found handler as proof of no circuit.
 
+The actual Qt/Okuda touchscreen can be captured through its developer D-Bus
+interface; raw framebuffer reads may be stale. See the [developer-mode procedure](../docs/DEVELOPER_TOUCHSCREEN.md)
+for SSH access, image retrieval and the untested Qt input approach.
+
 The R1 base electronics include 24 V power/system-fan connections. That fact does
 not establish the external Air Manager connector pinout, fan model or PWM/tach
 electrical levels. Inspect the actual accessory before choosing a driver.

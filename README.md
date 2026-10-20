@@ -52,6 +52,8 @@ See the [18-tool reference](docs/TOOLS.md), [tested versions](docs/TESTED.md),
 [known shortcomings and TODOs](docs/KNOWN_ISSUES.md), and [security/privacy](SECURITY.md).
 Hardware notes start at [S5 R1 interfaces](hardware/S5_R1_INTERFACES.md);
 the [UMB controller](hardware/umb-controller/README.md) is a separate offline draft.
+For optional printer-side screen capture and experimental UI input, see
+[developer-mode touchscreen access](docs/DEVELOPER_TOUCHSCREEN.md).
 
 ## Requirements and checks
 

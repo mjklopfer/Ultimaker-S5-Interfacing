@@ -33,6 +33,9 @@
   Catalog parameters are checked for presence; callers must still follow their types.
 - The stdio protocol is dependency-free and intentionally limited. Test compatibility
   with your MCP client; a public hosted MCP service or tunnel is not included.
+- Developer-mode UI capture is a separate SSH/D-Bus procedure, not an MCP tool.
+  Coordinate-based button input is untested and is not covered by MCP write guards;
+  see [touchscreen access](DEVELOPER_TOUCHSCREEN.md).
 
 ## Hardware/controller research
 
