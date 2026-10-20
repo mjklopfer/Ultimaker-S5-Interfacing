@@ -1,0 +1,2938 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "printer local API interface inventory",
+    "version": "firmware-9.0.3"
+  },
+  "basePath": "/api/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json",
+    "multipart/form-data"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/ambient_temperature": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "current": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GET /ambient_temperature"
+      }
+    },
+    "/auth/request": {
+      "post": {
+        "parameters": [
+          {
+            "name": "application",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "user",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "host_name",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "exclusion_key",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "key": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "POST /auth/request"
+      }
+    },
+    "/auth/check/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "authorized",
+                    "unauthorized",
+                    "unknown"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "GET /auth/check/{id}"
+      }
+    },
+    "/auth/verify": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string",
+                  "enum": [
+                    "ok"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {}
+        },
+        "summary": "GET /auth/verify"
+      }
+    },
+    "/airmanager": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/AirManager"
+            }
+          }
+        },
+        "summary": "GET /airmanager"
+      }
+    },
+    "/camera": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Camera"
+            }
+          }
+        },
+        "summary": "GET /camera"
+      }
+    },
+    "/camera/feed": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /camera/feed"
+      }
+    },
+    "/camera/{index}/stream": {
+      "get": {
+        "parameters": [
+          {
+            "name": "index",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "302": {},
+          "404": {}
+        },
+        "summary": "GET /camera/{index}/stream"
+      }
+    },
+    "/camera/{index}/snapshot": {
+      "get": {
+        "parameters": [
+          {
+            "name": "index",
+            "in": "path",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "302": {},
+          "404": {}
+        },
+        "summary": "GET /camera/{index}/snapshot"
+      }
+    },
+    "/licenses": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string",
+                "enum": [
+                  "unknown",
+                  "unlicensed",
+                  "licensed",
+                  "grace_period",
+                  "expired"
+                ]
+              }
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /licenses"
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "404": {}
+        },
+        "summary": "POST /licenses"
+      }
+    },
+    "/licenses/{module_id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "module_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /licenses/{module_id}"
+      }
+    },
+    "/materials": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "summary": "GET /materials"
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "filename",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "signature_file",
+            "in": "formData",
+            "required": false,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "POST /materials"
+      }
+    },
+    "/materials/{material_guid}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "material_guid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /materials/{material_guid}"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "material_guid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /materials/{material_guid}"
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "material_guid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "DELETE /materials/{material_guid}"
+      }
+    },
+    "/printer": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        },
+        "summary": "GET /printer"
+      }
+    },
+    "/printer/diagnostics/cap_sensor_noise": {
+      "get": {
+        "responses": {
+          "200": {},
+          "400": {}
+        },
+        "summary": "GET /printer/diagnostics/cap_sensor_noise"
+      }
+    },
+    "/printer/diagnostics/temperature_flow/{sample_count}": {
+      "get": {
+        "produces": [
+          "application/json",
+          "text/csv"
+        ],
+        "parameters": [
+          {
+            "name": "sample_count",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "csv",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "max_timestamp",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "double"
+          }
+        ],
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /printer/diagnostics/temperature_flow/{sample_count}"
+      }
+    },
+    "/printer/diagnostics/probing_report": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "file"
+            }
+          },
+          "204": {}
+        },
+        "summary": "GET /printer/diagnostics/probing_report"
+      }
+    },
+    "/printer/status": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Printer_status"
+            }
+          }
+        },
+        "summary": "GET /printer/status"
+      }
+    },
+    "/printer/led": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/led"
+            }
+          }
+        },
+        "summary": "GET /printer/led"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "color",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/led"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/led"
+      }
+    },
+    "/printer/led/hue": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/led_hue"
+            }
+          }
+        },
+        "summary": "GET /printer/led/hue"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "hue",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/led_hue"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/led/hue"
+      }
+    },
+    "/printer/led/saturation": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/led_saturation"
+            }
+          }
+        },
+        "summary": "GET /printer/led/saturation"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "saturation",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/led_saturation"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/led/saturation"
+      }
+    },
+    "/printer/led/brightness": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/led_brightness"
+            }
+          }
+        },
+        "summary": "GET /printer/led/brightness"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/led_brightness"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/led/brightness"
+      }
+    },
+    "/printer/led/blink": {
+      "post": {
+        "parameters": [
+          {
+            "name": "blink",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/Blink"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "400": {}
+        },
+        "summary": "POST /printer/led/blink"
+      }
+    },
+    "/printer/heads": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Head"
+              }
+            }
+          }
+        },
+        "summary": "GET /printer/heads"
+      }
+    },
+    "/printer/heads/{head_id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Head"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /printer/heads/{head_id}"
+      }
+    },
+    "/printer/heads/{head_id}/position": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/XYZ"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/position"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "position",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                },
+                "z": {
+                  "type": "number"
+                },
+                "speed": {
+                  "type": "number",
+                  "default": 150
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/position"
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "action",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "home"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {}
+        },
+        "summary": "POST /printer/heads/{head_id}/position"
+      }
+    },
+    "/printer/heads/{head_id}/max_speed": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/XYZ"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/max_speed"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "speed",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/XYZ"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/max_speed"
+      }
+    },
+    "/printer/heads/{head_id}/acceleration": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "number"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/acceleration"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "acceleration",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/acceleration"
+      }
+    },
+    "/printer/heads/{head_id}/jerk": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/XYZ"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/jerk"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "jerk",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/XYZ"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/jerk"
+      }
+    },
+    "/printer/bed": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Bed"
+            }
+          }
+        },
+        "summary": "GET /printer/bed"
+      }
+    },
+    "/printer/bed/temperature": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CurrentTargetNumberPair"
+            }
+          }
+        },
+        "summary": "GET /printer/bed/temperature"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "temperature",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/bed/temperature"
+      }
+    },
+    "/printer/bed/pre_heat": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "active": {
+                  "type": "boolean"
+                },
+                "remaining": {
+                  "type": "number"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GET /printer/bed/pre_heat"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "temperature",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Bed_PreHeat"
+            }
+          }
+        ],
+        "responses": {
+          "400": {},
+          "204": {}
+        },
+        "summary": "PUT /printer/bed/pre_heat"
+      }
+    },
+    "/printer/bed/type": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /printer/bed/type"
+      }
+    },
+    "/printer/heads/{head_id}/extruders": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Extruder"
+              }
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Extruder"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/hotend/offset": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/HotendOffset"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/hotend/offset"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/feeder": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Feeder"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/feeder"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/feeder/jerk": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "number"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/feeder/jerk"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "jerk",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/extruders/{extruder_id}/feeder/jerk"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/feeder/max_speed": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "number"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/feeder/max_speed"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "max_speed",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/extruders/{extruder_id}/feeder/max_speed"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/feeder/acceleration": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "number"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/feeder/acceleration"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "acceleration",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/extruders/{extruder_id}/feeder/acceleration"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/active_material": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Material"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/active_material"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/active_material/length_remaining": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "number"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/active_material/length_remaining"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/hotend": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Hotend"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/hotend"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/hotend/temperature": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CurrentTargetNumberPair"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/hotend/temperature"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "temperature",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/heads/{head_id}/extruders/{extruder_id}/hotend/temperature"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/active_material/guid": {
+      "get": {
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/active_material/guid"
+      }
+    },
+    "/printer/heads/{head_id}/extruders/{extruder_id}/active_material/GUID": {
+      "get": {
+        "deprecated": true,
+        "parameters": [
+          {
+            "name": "head_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "extruder_id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /printer/heads/{head_id}/extruders/{extruder_id}/active_material/GUID"
+      }
+    },
+    "/printer/network": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Network"
+            }
+          }
+        },
+        "summary": "GET /printer/network"
+      }
+    },
+    "/printer/network/wifi_networks": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Wifi_network"
+              }
+            }
+          }
+        },
+        "summary": "GET /printer/network/wifi_networks"
+      }
+    },
+    "/printer/network/wifi_networks/{ssid}": {
+      "put": {
+        "parameters": [
+          {
+            "name": "ssid",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "passphrase",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /printer/network/wifi_networks/{ssid}"
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "ssid",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "DELETE /printer/network/wifi_networks/{ssid}"
+      }
+    },
+    "/printer/validate_header": {
+      "post": {
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HeaderValidationEntry"
+              }
+            }
+          },
+          "400": {}
+        },
+        "summary": "POST /printer/validate_header"
+      }
+    },
+    "/print_job": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job"
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "jobname",
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "owner",
+            "in": "formData",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "created_at",
+            "in": "formData",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "allow_reprint",
+            "in": "formData",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "201": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "uuid": {
+                  "$ref": "#/definitions/uuid"
+                }
+              }
+            }
+          }
+        },
+        "summary": "POST /print_job"
+      }
+    },
+    "/print_job/name": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/name"
+      }
+    },
+    "/print_job/datetime_started": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/datetime_started"
+      }
+    },
+    "/print_job/datetime_finished": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/datetime_finished"
+      }
+    },
+    "/print_job/datetime_cleaned": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/datetime_cleaned"
+      }
+    },
+    "/print_job/source": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "USB",
+                "WEP_API",
+                "CALIBRATION_MENU"
+              ]
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/source"
+      }
+    },
+    "/print_job/source_user": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/source_user"
+      }
+    },
+    "/print_job/source_application": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/source_application"
+      }
+    },
+    "/print_job/uuid": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/uuid"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/uuid"
+      }
+    },
+    "/print_job/reprint_original_uuid": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/uuid"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/reprint_original_uuid"
+      }
+    },
+    "/print_job/time_elapsed": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/time_elapsed"
+      }
+    },
+    "/print_job/time_total": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/time_total"
+      }
+    },
+    "/print_job/progress": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "number"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/progress"
+      }
+    },
+    "/print_job/gcode": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "file"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/gcode"
+      }
+    },
+    "/print_job/container": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "file"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/container"
+      }
+    },
+    "/print_job/pause_source": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "unknown",
+                "gcode",
+                "display",
+                "flowsensor",
+                "printer",
+                "api"
+              ]
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/pause_source"
+      }
+    },
+    "/print_job/state": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "none",
+                "printing",
+                "pausing",
+                "paused",
+                "resuming",
+                "pre_print",
+                "post_print",
+                "wait_cleanup",
+                "wait_user_action"
+              ]
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/state"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "target",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "print",
+                "pause",
+                "abort"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /print_job/state"
+      }
+    },
+    "/print_job/result": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/printJob_result"
+            }
+          },
+          "404": {}
+        },
+        "summary": "GET /print_job/result"
+      }
+    },
+    "/history/print_jobs": {
+      "get": {
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJobHistory"
+              }
+            }
+          }
+        },
+        "summary": "GET /history/print_jobs"
+      }
+    },
+    "/history/print_jobs/{uuid}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PrintJobHistory"
+            }
+          }
+        },
+        "summary": "GET /history/print_jobs/{uuid}"
+      }
+    },
+    "/history/events": {
+      "get": {
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "type_id",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/EventHistoryEntry"
+              }
+            }
+          }
+        },
+        "summary": "GET /history/events"
+      },
+      "post": {
+        "parameters": [
+          {
+            "name": "type_id",
+            "in": "formData",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "parameters",
+            "in": "formData",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {},
+          "400": {}
+        },
+        "summary": "POST /history/events"
+      }
+    },
+    "/system": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/System"
+            }
+          }
+        },
+        "summary": "GET /system"
+      }
+    },
+    "/system/platform": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/platform"
+      }
+    },
+    "/system/hostname": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/hostname"
+      }
+    },
+    "/system/firmware": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/firmware"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "update_type",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {}
+        },
+        "summary": "PUT /system/firmware"
+      }
+    },
+    "/system/firmware/status": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/firmware/status"
+      }
+    },
+    "/system/firmware/stable": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/firmware/stable"
+      }
+    },
+    "/system/firmware/latest": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/firmware/latest"
+      }
+    },
+    "/system/memory": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/system_memory"
+            }
+          }
+        },
+        "summary": "GET /system/memory"
+      }
+    },
+    "/system/time": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/system_time"
+            }
+          }
+        },
+        "summary": "GET /system/time"
+      }
+    },
+    "/system/log": {
+      "get": {
+        "parameters": [
+          {
+            "name": "boot",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          },
+          {
+            "name": "lines",
+            "in": "query",
+            "required": false,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/SystemLog"
+            }
+          }
+        },
+        "summary": "GET /system/log"
+      }
+    },
+    "/system/name": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/name"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {},
+          "400": {}
+        },
+        "summary": "PUT /system/name"
+      }
+    },
+    "/system/country": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/country"
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "country",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {}
+        },
+        "summary": "PUT /system/country"
+      }
+    },
+    "/system/is_country_locked": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        },
+        "summary": "GET /system/is_country_locked"
+      }
+    },
+    "/system/language": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/language"
+      }
+    },
+    "/system/uptime": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "integer"
+            }
+          }
+        },
+        "summary": "GET /system/uptime"
+      }
+    },
+    "/system/type": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/type"
+      }
+    },
+    "/system/variant": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/variant"
+      }
+    },
+    "/system/hardware": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/system_hardware"
+            }
+          }
+        },
+        "summary": "GET /system/hardware"
+      }
+    },
+    "/system/hardware/typeid": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "integer"
+            }
+          }
+        },
+        "summary": "GET /system/hardware/typeid"
+      }
+    },
+    "/system/hardware/revision": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "integer"
+            }
+          }
+        },
+        "summary": "GET /system/hardware/revision"
+      }
+    },
+    "/system/guid": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "GET /system/guid"
+      }
+    },
+    "/system/display_message": {
+      "put": {
+        "parameters": [
+          {
+            "name": "message_data",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "required": [
+                "message"
+              ],
+              "properties": {
+                "message": {
+                  "type": "string"
+                },
+                "button_caption": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {},
+          "400": {},
+          "405": {}
+        },
+        "summary": "PUT /system/display_message"
+      }
+    }
+  },
+  "definitions": {
+    "AirManager": {
+      "type": "object",
+      "properties": {
+        "firmware_version": {
+          "type": "string"
+        },
+        "filter_age": {
+          "type": "number"
+        },
+        "filter_max_age": {
+          "type": "number"
+        },
+        "filter_status": {
+          "type": "string",
+          "enum": [
+            "unknown",
+            "peak_performance",
+            "replacement_near",
+            "replacement_required",
+            "missing"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "error",
+            "unavailable",
+            "available",
+            "installing_firmware"
+          ]
+        },
+        "fan_speed": {
+          "type": "number"
+        }
+      }
+    },
+    "Camera": {
+      "type": "object",
+      "required": [
+        "feed"
+      ],
+      "properties": {
+        "feed": {
+          "type": "string"
+        }
+      }
+    },
+    "Printer_status": {
+      "type": "string",
+      "enum": [
+        "booting",
+        "waiting_for_peripherals",
+        "idle",
+        "printing",
+        "error",
+        "maintenance"
+      ]
+    },
+    "Printer": {
+      "type": "object",
+      "required": [
+        "heads"
+      ],
+      "properties": {
+        "heads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Head"
+          }
+        },
+        "camera": {
+          "$ref": "#/definitions/Camera"
+        },
+        "bed": {
+          "$ref": "#/definitions/Bed"
+        },
+        "network": {
+          "$ref": "#/definitions/Network"
+        },
+        "led": {
+          "$ref": "#/definitions/led"
+        },
+        "status": {
+          "$ref": "#/definitions/Printer_status"
+        },
+        "airmanager": {
+          "$ref": "#/definitions/AirManager"
+        }
+      }
+    },
+    "Material": {
+      "type": "object",
+      "properties": {
+        "length_remaining": {
+          "type": "number"
+        },
+        "GUID": {
+          "type": "string"
+        }
+      }
+    },
+    "Network": {
+      "type": "object",
+      "properties": {
+        "wifi": {
+          "type": "object",
+          "properties": {
+            "connected": {
+              "type": "boolean"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "mode": {
+              "type": "string",
+              "enum": [
+                "AUTO",
+                "HOTSPOT",
+                "WIFI SETUP",
+                "CABLE",
+                "WIRELESS",
+                "OFFLINE"
+              ]
+            },
+            "ssid": {
+              "type": "string"
+            }
+          }
+        },
+        "wifi_networks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Wifi_network"
+          }
+        },
+        "ethernet": {
+          "type": "object",
+          "properties": {
+            "connected": {
+              "type": "boolean"
+            },
+            "enabled": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "Extruder": {
+      "type": "object",
+      "properties": {
+        "hotend": {
+          "$ref": "#/definitions/Hotend"
+        },
+        "feeder": {
+          "$ref": "#/definitions/Feeder"
+        },
+        "active_material": {
+          "$ref": "#/definitions/Material"
+        }
+      }
+    },
+    "Head": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "$ref": "#/definitions/XYZ"
+        },
+        "max_speed": {
+          "$ref": "#/definitions/XYZ"
+        },
+        "acceleration": {
+          "type": "number"
+        },
+        "jerk": {
+          "$ref": "#/definitions/XYZ"
+        },
+        "extruders": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Extruder"
+          }
+        },
+        "fan": {
+          "type": "number"
+        }
+      }
+    },
+    "Wifi_network": {
+      "type": "object",
+      "properties": {
+        "ssid": {
+          "type": "string"
+        },
+        "security_required": {
+          "type": "boolean"
+        },
+        "strength": {
+          "type": "integer"
+        }
+      }
+    },
+    "Hotend": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "serial": {
+          "type": "string"
+        },
+        "temperature": {
+          "$ref": "#/definitions/CurrentTargetNumberPair"
+        },
+        "offset": {
+          "$ref": "#/definitions/HotendOffset"
+        },
+        "statistics": {
+          "$ref": "#/definitions/HotendStatistics"
+        }
+      }
+    },
+    "led_hue": {
+      "type": "number"
+    },
+    "led_saturation": {
+      "type": "number"
+    },
+    "led_brightness": {
+      "type": "number"
+    },
+    "led": {
+      "type": "object",
+      "properties": {
+        "hue": {
+          "$ref": "#/definitions/led_hue"
+        },
+        "saturation": {
+          "$ref": "#/definitions/led_saturation"
+        },
+        "brightness": {
+          "$ref": "#/definitions/led_brightness"
+        }
+      }
+    },
+    "Blink": {
+      "type": "object",
+      "properties": {
+        "frequency": {
+          "type": "number",
+          "minimum": 0.1
+        },
+        "count": {
+          "type": "number",
+          "minimum": 1
+        }
+      }
+    },
+    "Bed": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "temperature": {
+          "$ref": "#/definitions/CurrentTargetNumberPair"
+        },
+        "pre_heat": {
+          "$ref": "#/definitions/Bed_PreHeat"
+        }
+      }
+    },
+    "CurrentTargetNumberPair": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "number"
+        },
+        "current": {
+          "type": "number"
+        }
+      }
+    },
+    "Feeder": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "type": "number"
+        },
+        "max_speed": {
+          "type": "number"
+        },
+        "jerk": {
+          "type": "number"
+        },
+        "acceleration": {
+          "type": "number"
+        }
+      }
+    },
+    "HotendOffset": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "default": 0
+        },
+        "y": {
+          "type": "number",
+          "default": 0
+        },
+        "z": {
+          "type": "number",
+          "default": 0
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "invalid"
+          ]
+        }
+      }
+    },
+    "HotendStatistics": {
+      "type": "object",
+      "properties": {
+        "last_material_guid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "material_extruded": {
+          "type": "integer"
+        },
+        "max_temperature_exposed": {
+          "type": "integer"
+        },
+        "time_spent_hot": {
+          "type": "integer"
+        }
+      }
+    },
+    "XYZ": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "default": 0
+        },
+        "y": {
+          "type": "number",
+          "default": 0
+        },
+        "z": {
+          "type": "number",
+          "default": 0
+        }
+      }
+    },
+    "printJob_result": {
+      "type": "string",
+      "enum": [
+        "Failed",
+        "Aborted",
+        "Finished"
+      ]
+    },
+    "PrintJob": {
+      "type": "object",
+      "properties": {
+        "time_elapsed": {
+          "type": "integer"
+        },
+        "time_total": {
+          "type": "integer"
+        },
+        "datetime_started": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "datetime_finished": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "datetime_cleaned": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "source": {
+          "type": "string"
+        },
+        "source_user": {
+          "type": "string"
+        },
+        "source_application": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "reprint_original_uuid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "progress": {
+          "type": "number"
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "none",
+            "printing",
+            "pausing",
+            "paused",
+            "resuming",
+            "pre_print",
+            "post_print",
+            "wait_cleanup",
+            "wait_user_action"
+          ]
+        },
+        "result": {
+          "$ref": "#/definitions/printJob_result"
+        }
+      }
+    },
+    "HeaderValidationEntry": {
+      "type": "object",
+      "properties": {
+        "fault_code": {
+          "type": "string",
+          "enum": [
+            "HEADER_NOT_PRESENT",
+            "HEADER_MISSING_ITEM",
+            "MACHINE_TOO_SMALL_FOR_GCODE",
+            "CHANGE_BUILDPLATE",
+            "NOZZLE_AMOUNT_MISMATCH",
+            "NOZZLE_MISMATCH",
+            "MATERIAL_NOT_LOADED",
+            "GUID_MISMATCH"
+          ]
+        },
+        "fault_level": {
+          "type": "string",
+          "enum": [
+            "WARNING",
+            "ERROR"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        }
+      }
+    },
+    "PrintJobHistory": {
+      "type": "object",
+      "properties": {
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "extruders_used": {
+          "0": {
+            "type": "boolean"
+          },
+          "1": {
+            "type": "boolean"
+          }
+        },
+        "generator_version": {
+          "type": "string"
+        },
+        "has_ppr": {
+          "type": "boolean"
+        },
+        "interrupted_step": {
+          "type": "string"
+        },
+        "material_0_amount": {
+          "type": "integer"
+        },
+        "material_1_amount": {
+          "type": "integer"
+        },
+        "material_0_guid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "material_1_guid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "printcore_0_name": {
+          "type": "string"
+        },
+        "printcore_1_name": {
+          "type": "string"
+        },
+        "slice_uuid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "time_elapsed": {
+          "type": "integer"
+        },
+        "time_estimated": {
+          "type": "integer"
+        },
+        "time_total": {
+          "type": "integer"
+        },
+        "datetime_started": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "datetime_finished": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "datetime_cleaned": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "result": {
+          "type": "string",
+          "enum": [
+            "Finished",
+            "Aborted",
+            "Failed"
+          ]
+        },
+        "source": {
+          "type": "string"
+        },
+        "reprint_original_uuid": {
+          "$ref": "#/definitions/uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "uuid": {
+          "$ref": "#/definitions/uuid"
+        }
+      }
+    },
+    "EventHistoryEntry": {
+      "type": "object",
+      "properties": {
+        "time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "type_id": {
+          "type": "number"
+        },
+        "message": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "uuid": {
+      "type": "string"
+    },
+    "system_memory": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "used": {
+          "type": "integer"
+        }
+      }
+    },
+    "system_hardware": {
+      "type": "object",
+      "properties": {
+        "typeid": {
+          "type": "integer"
+        },
+        "revision": {
+          "type": "integer"
+        }
+      }
+    },
+    "system_time": {
+      "type": "object",
+      "properties": {
+        "utc": {
+          "type": "number"
+        }
+      }
+    },
+    "System": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "hostname": {
+          "type": "string"
+        },
+        "firmware": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "uptime": {
+          "type": "integer"
+        },
+        "time": {
+          "$ref": "#/definitions/system_time"
+        },
+        "type": {
+          "type": "string"
+        },
+        "variant": {
+          "type": "string"
+        },
+        "memory": {
+          "$ref": "#/definitions/system_memory"
+        },
+        "hardware": {
+          "$ref": "#/definitions/system_hardware"
+        },
+        "log": {
+          "type": "string"
+        },
+        "guid": {
+          "type": "string"
+        }
+      }
+    },
+    "SystemLog": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Bed_PreHeat": {
+      "type": "object",
+      "properties": {
+        "temperature": {
+          "type": "number",
+          "minimum": 0
+        },
+        "timeout": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

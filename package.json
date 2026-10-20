@@ -1,0 +1,15 @@
+{
+  "name": "ultimaker-s5-interfacing",
+  "version": "0.1.5",
+  "private": true,
+  "description": "Local Cura MCP bridge and S5 R1 interface research",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test",
+    "privacy": "python scripts/privacy_check.py"
+  }
+}

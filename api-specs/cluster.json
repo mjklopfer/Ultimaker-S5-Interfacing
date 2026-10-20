@@ -1,0 +1,1843 @@
+{
+  "swagger": "2.0",
+  "basePath": "/cluster-api/v1",
+  "paths": {
+    "/cloud/action/associate_printer": {
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PIN"
+            }
+          }
+        ],
+        "summary": "POST /cloud/action/associate_printer"
+      }
+    },
+    "/cloud/action/setup_associate_printer": {
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "POST /cloud/action/setup_associate_printer"
+      }
+    },
+    "/cloud/action/sign_out": {
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "POST /cloud/action/sign_out"
+      }
+    },
+    "/cloud/authentication": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CloudAuthenticationMode"
+            }
+          },
+          "404": {}
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /cloud/authentication"
+      }
+    },
+    "/cloud/cloud_connect_flow": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CloudConnectFlowMode"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /cloud/cloud_connect_flow"
+      }
+    },
+    "/cloud/redirect": {
+      "get": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /cloud/redirect"
+      }
+    },
+    "/debug/match_matrix/{nr}": {
+      "parameters": [
+        {
+          "name": "nr",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MatchResultPerJob"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /debug/match_matrix/{nr}"
+      }
+    },
+    "/debug/schedule/{nr}": {
+      "parameters": [
+        {
+          "name": "nr",
+          "in": "path",
+          "required": true,
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Schedule"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /debug/schedule/{nr}"
+      }
+    },
+    "/materials/": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Material"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /materials/"
+      },
+      "post": {
+        "responses": {
+          "400": {}
+        },
+        "parameters": [
+          {
+            "name": "signature_file",
+            "in": "formData",
+            "type": "file"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "summary": "POST /materials/"
+      }
+    },
+    "/print_jobs/": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJob"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /print_jobs/"
+      },
+      "post": {
+        "responses": {
+          "400": {},
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PrintJob"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "type": "file",
+            "required": true
+          },
+          {
+            "name": "owner",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "force",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "allow_reprint",
+            "in": "formData",
+            "type": "boolean"
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "summary": "POST /print_jobs/"
+      }
+    },
+    "/print_jobs/action/delete": {
+      "post": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/PrintJobUUIDList"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PrintJobUUIDList"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "POST /print_jobs/action/delete"
+      }
+    },
+    "/print_jobs/history/recently_completed": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/HistoricalPrintJob"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /print_jobs/history/recently_completed"
+      }
+    },
+    "/print_jobs/printing": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJob"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /print_jobs/printing"
+      }
+    },
+    "/print_jobs/queued": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/PrintJob"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /print_jobs/queued"
+      }
+    },
+    "/print_jobs/{job_uuid}/action": {
+      "parameters": [
+        {
+          "name": "job_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "responses": {
+          "400": {},
+          "405": {},
+          "404": {},
+          "204": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PrintJobAction"
+            }
+          }
+        ],
+        "summary": "PUT /print_jobs/{job_uuid}/action"
+      },
+      "post": {
+        "responses": {
+          "400": {},
+          "405": {},
+          "404": {},
+          "204": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PrintJobAction"
+            }
+          }
+        ],
+        "summary": "POST /print_jobs/{job_uuid}/action"
+      }
+    },
+    "/print_jobs/{job_uuid}/action/duplicate": {
+      "parameters": [
+        {
+          "name": "job_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/DuplicatePrintJob"
+            }
+          }
+        ],
+        "summary": "POST /print_jobs/{job_uuid}/action/duplicate"
+      }
+    },
+    "/print_jobs/{job_uuid}/action/move": {
+      "parameters": [
+        {
+          "name": "job_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PrintJobPosition"
+            }
+          }
+        ],
+        "summary": "POST /print_jobs/{job_uuid}/action/move"
+      }
+    },
+    "/print_jobs/{job_uuid}/action/status": {
+      "parameters": [
+        {
+          "name": "job_uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdatePrintJobStatus"
+            }
+          }
+        ],
+        "summary": "POST /print_jobs/{job_uuid}/action/status"
+      }
+    },
+    "/print_jobs/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "delete": {
+        "responses": {
+          "404": {},
+          "204": {}
+        },
+        "summary": "DELETE /print_jobs/{uuid}"
+      },
+      "put": {
+        "responses": {
+          "404": {},
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdatePrintJob"
+            }
+          }
+        ],
+        "summary": "PUT /print_jobs/{uuid}"
+      }
+    },
+    "/print_jobs/{uuid}/move_to_position": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "responses": {
+          "404": {},
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/PrintJobPosition"
+            }
+          }
+        ],
+        "deprecated": true,
+        "summary": "PUT /print_jobs/{uuid}/move_to_position"
+      }
+    },
+    "/print_jobs/{uuid}/preview_image": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /print_jobs/{uuid}/preview_image"
+      }
+    },
+    "/print_jobs/{uuid}/update": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "responses": {
+          "404": {},
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdatePrintJob"
+            }
+          }
+        ],
+        "deprecated": true,
+        "summary": "PUT /print_jobs/{uuid}/update"
+      }
+    },
+    "/printers/": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Printer"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /printers/"
+      }
+    },
+    "/printers/{uuid}": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Printer"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdatePrinter"
+            }
+          },
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "PUT /printers/{uuid}"
+      }
+    },
+    "/printers/{uuid}/action/identify": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "POST /printers/{uuid}/action/identify"
+      }
+    },
+    "/printers/{uuid}/action/update_firmware": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/update_firmware"
+            }
+          }
+        ],
+        "summary": "POST /printers/{uuid}/action/update_firmware"
+      }
+    },
+    "/printers/{uuid}/identify": {
+      "parameters": [
+        {
+          "name": "uuid",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "deprecated": true,
+        "summary": "POST /printers/{uuid}/identify"
+      }
+    },
+    "/settings/{identifier}": {
+      "parameters": [
+        {
+          "name": "identifier",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "put": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Settings"
+            }
+          }
+        ],
+        "summary": "PUT /settings/{identifier}"
+      },
+      "get": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /settings/{identifier}"
+      }
+    },
+    "/system/authentication_mode/": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/AuthenticationMode"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /system/authentication_mode/"
+      }
+    },
+    "/system/authentication_mode/action/setup_cloud": {
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "POST /system/authentication_mode/action/setup_cloud"
+      }
+    },
+    "/system/authentication_mode/action/setup_open": {
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "POST /system/authentication_mode/action/setup_open"
+      }
+    },
+    "/system/current_user": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/CurrentUser"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "X-Fields",
+            "in": "header",
+            "type": "string",
+            "format": "mask"
+          }
+        ],
+        "summary": "GET /system/current_user"
+      }
+    },
+    "/system/detach": {
+      "post": {
+        "responses": {
+          "200": {}
+        },
+        "parameters": [
+          {
+            "name": "payload",
+            "required": true,
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/detach"
+            }
+          }
+        ],
+        "summary": "POST /system/detach"
+      }
+    },
+    "/system/host_name/": {
+      "get": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /system/host_name/"
+      }
+    },
+    "/system/host_unique_name/": {
+      "get": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /system/host_unique_name/"
+      }
+    },
+    "/system/latest_firmware_versions/": {
+      "get": {
+        "responses": {
+          "200": {}
+        },
+        "summary": "GET /system/latest_firmware_versions/"
+      }
+    }
+  },
+  "info": {
+    "title": "cluster local API interface inventory",
+    "version": "firmware-9.0.3"
+  },
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "definitions": {
+    "MatchResultPerJob": {
+      "properties": {
+        "print_job": {
+          "$ref": "#/definitions/MinimalPrintJob"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MatchResultPerPrinter"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "MinimalPrintJob": {
+      "required": [
+        "name",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MatchResultPerPrinter": {
+      "properties": {
+        "printer": {
+          "$ref": "#/definitions/MinimalPrinter"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DebugMatchResult"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "MinimalPrinter": {
+      "required": [
+        "friendly_name",
+        "unique_name"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string"
+        },
+        "unique_name": {
+          "type": "string"
+        },
+        "friendly_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "DebugMatchResult": {
+      "required": [
+        "debug_message"
+      ],
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "origin": {
+          "type": "string"
+        },
+        "debug_message": {
+          "type": "string"
+        },
+        "score": {
+          "type": "integer"
+        },
+        "severity": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "Schedule": {
+      "properties": {
+        "printer": {
+          "$ref": "#/definitions/MinimalPrinter"
+        },
+        "jobs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MinimalPrintJob"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "PrintJob": {
+      "required": [
+        "force",
+        "machine_variant",
+        "name",
+        "started",
+        "time_elapsed",
+        "time_total",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "pattern": "[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}"
+        },
+        "external_uuid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "started": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "sent_to_printer",
+            "pre_print",
+            "printing",
+            "pausing",
+            "paused",
+            "resuming",
+            "post_print",
+            "wait_cleanup",
+            "wait_user_action",
+            "aborted_wait_cleanup",
+            "aborted_post_print",
+            "aborted_wait_user_action",
+            "failed_wait_cleanup",
+            "failed_post_print",
+            "failed_wait_user_action",
+            "queued",
+            "none",
+            "finished",
+            "aborted",
+            "failed"
+          ]
+        },
+        "printer_uuid": {
+          "type": "string"
+        },
+        "configuration": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintCoreConfiguration"
+          }
+        },
+        "machine_variant": {
+          "type": "string",
+          "enum": [
+            "Ultimaker 3",
+            "Ultimaker 3 Extended",
+            "Ultimaker S3",
+            "Ultimaker S5",
+            "Ultimaker S7",
+            "Ultimaker S6",
+            "Ultimaker S8",
+            "Ultimaker Factor 4",
+            "Ultimaker Colorado"
+          ]
+        },
+        "constraints": {
+          "$ref": "#/definitions/PrintJobConstraint"
+        },
+        "time_elapsed": {
+          "type": "integer"
+        },
+        "time_total": {
+          "type": "integer"
+        },
+        "last_seen": {
+          "type": "number"
+        },
+        "network_error_count": {
+          "type": "integer"
+        },
+        "force": {
+          "type": "boolean"
+        },
+        "assigned_to": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "build_plate": {
+          "$ref": "#/definitions/BuildPlate"
+        },
+        "configuration_changes_required": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ConfigurationChange"
+          }
+        },
+        "impediments_to_printing": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MatchResult"
+          }
+        },
+        "compatible_machine_families": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Ultimaker 3",
+              "Ultimaker 3 Extended",
+              "Ultimaker S3",
+              "Ultimaker S5",
+              "Ultimaker S7",
+              "Ultimaker S6",
+              "Ultimaker S8",
+              "Ultimaker Factor 4",
+              "Ultimaker Colorado"
+            ]
+          }
+        },
+        "printed_on_uuid": {
+          "type": "string"
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "cloud_job_id": {
+          "type": "string"
+        },
+        "allow_reprint": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "PrintCoreConfiguration": {
+      "required": [
+        "extruder_index"
+      ],
+      "properties": {
+        "extruder_index": {
+          "type": "integer"
+        },
+        "print_core_id": {
+          "type": "string"
+        },
+        "material": {
+          "$ref": "#/definitions/Material"
+        },
+        "temperature": {
+          "$ref": "#/definitions/Temperature"
+        }
+      },
+      "type": "object"
+    },
+    "Material": {
+      "properties": {
+        "guid": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "material": {
+          "type": "string"
+        },
+        "color": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer"
+        },
+        "density": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "Temperature": {
+      "properties": {
+        "current": {
+          "type": "number"
+        },
+        "target": {
+          "type": "number"
+        }
+      },
+      "type": "object"
+    },
+    "PrintJobConstraint": {
+      "properties": {
+        "require_printer_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "BuildPlate": {
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "temperature": {
+          "$ref": "#/definitions/Temperature"
+        }
+      },
+      "type": "object"
+    },
+    "ConfigurationChange": {
+      "required": [
+        "origin_id",
+        "target_id",
+        "type_of_change"
+      ],
+      "properties": {
+        "type_of_change": {
+          "type": "string",
+          "enum": [
+            "material_change",
+            "material_insert",
+            "print_core_change",
+            "buildplate_change"
+          ]
+        },
+        "index": {
+          "type": "integer"
+        },
+        "target_id": {
+          "type": "string"
+        },
+        "origin_id": {
+          "type": "string"
+        },
+        "target_name": {
+          "type": "string"
+        },
+        "origin_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "MatchResult": {
+      "required": [
+        "severity",
+        "translation_key"
+      ],
+      "properties": {
+        "translation_key": {
+          "type": "string"
+        },
+        "severity": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "PrintJobUUIDList": {
+      "properties": {
+        "uuids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "UpdatePrintJob": {
+      "properties": {
+        "force": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "PrintJobPosition": {
+      "required": [
+        "to_position"
+      ],
+      "properties": {
+        "to_position": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "list": {
+          "type": "string",
+          "enum": [
+            "queued"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "UpdatePrintJobStatus": {
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "pause",
+            "print",
+            "abort"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "DuplicatePrintJob": {
+      "required": [
+        "quantity"
+      ],
+      "properties": {
+        "quantity": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "type": "object"
+    },
+    "PrintJobAction": {
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "quantity": {
+          "type": "integer"
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "abort",
+            "print",
+            "pause",
+            "reprint",
+            "duplicate"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "HistoricalPrintJob": {
+      "required": [
+        "name",
+        "owner",
+        "time_total"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "external_uuid": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "owner": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deleted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "sent_to_printer",
+            "pre_print",
+            "printing",
+            "pausing",
+            "paused",
+            "resuming",
+            "post_print",
+            "wait_cleanup",
+            "wait_user_action",
+            "aborted_wait_cleanup",
+            "aborted_post_print",
+            "aborted_wait_user_action",
+            "failed_wait_cleanup",
+            "failed_post_print",
+            "failed_wait_user_action",
+            "queued",
+            "none",
+            "finished",
+            "aborted",
+            "failed"
+          ]
+        },
+        "job_material_1_guid": {
+          "type": "string"
+        },
+        "job_printcore_1": {
+          "type": "string"
+        },
+        "job_material_amount_1": {
+          "type": "integer"
+        },
+        "job_material_2_guid": {
+          "type": "string"
+        },
+        "job_printcore_2": {
+          "type": "string"
+        },
+        "job_material_amount_2": {
+          "type": "integer"
+        },
+        "job_buildplate": {
+          "type": "string"
+        },
+        "estimated_time_total": {
+          "type": "integer"
+        },
+        "force": {
+          "type": "boolean"
+        },
+        "machine_variant": {
+          "type": "string",
+          "enum": [
+            "Ultimaker 3",
+            "Ultimaker 3 Extended",
+            "Ultimaker S3",
+            "Ultimaker S5",
+            "Ultimaker S7",
+            "Ultimaker S6",
+            "Ultimaker S8",
+            "Ultimaker Factor 4",
+            "Ultimaker Colorado"
+          ]
+        },
+        "printer_uuid": {
+          "type": "string"
+        },
+        "time_total": {
+          "type": "integer"
+        },
+        "print_start_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "print_end_time": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "printer_material_1_guid": {
+          "type": "string"
+        },
+        "printer_printcore_1": {
+          "type": "string"
+        },
+        "printer_material_2_guid": {
+          "type": "string"
+        },
+        "printer_printcore_2": {
+          "type": "string"
+        },
+        "printer_buildplate": {
+          "type": "string"
+        },
+        "compatible_machine_families": {
+          "type": "string"
+        },
+        "require_printer_name": {
+          "type": "string"
+        },
+        "cloud_job_id": {
+          "type": "string"
+        },
+        "allow_reprint": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "Printer": {
+      "required": [
+        "firmware_update_status",
+        "friendly_name",
+        "ip_address",
+        "is_host",
+        "latest_available_firmware",
+        "unique_name",
+        "uuid"
+      ],
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "idle",
+            "printing",
+            "pre_print",
+            "maintenance",
+            "unreachable",
+            "unknown",
+            "error"
+          ]
+        },
+        "unique_name": {
+          "type": "string"
+        },
+        "ip_address": {
+          "type": "string"
+        },
+        "is_host": {
+          "type": "boolean"
+        },
+        "firmware_version": {
+          "type": "string"
+        },
+        "friendly_name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "reserved_by": {
+          "type": "string"
+        },
+        "machine_variant": {
+          "type": "string",
+          "enum": [
+            "Ultimaker 3",
+            "Ultimaker 3 Extended",
+            "Ultimaker S3",
+            "Ultimaker S5",
+            "Ultimaker S7",
+            "Ultimaker S6",
+            "Ultimaker S8",
+            "Ultimaker Factor 4",
+            "Ultimaker Colorado"
+          ]
+        },
+        "build_plate": {
+          "$ref": "#/definitions/BuildPlate"
+        },
+        "air_manager": {
+          "$ref": "#/definitions/AirManager"
+        },
+        "material_station": {
+          "$ref": "#/definitions/MaterialStation"
+        },
+        "configuration": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrintCoreConfiguration"
+          }
+        },
+        "maintenance_required": {
+          "type": "boolean"
+        },
+        "firmware_update_status": {
+          "type": "string",
+          "enum": [
+            "up_to_date",
+            "pending_update",
+            "update_available",
+            "update_in_progress",
+            "update_failed",
+            "update_impossible"
+          ]
+        },
+        "latest_available_firmware": {
+          "type": "string"
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PrinterError"
+          }
+        },
+        "faults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Fault"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "AirManager": {
+      "required": [
+        "filter_age",
+        "filter_max_age",
+        "supported"
+      ],
+      "properties": {
+        "supported": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "available",
+            "unavailable",
+            "error",
+            "installing_firmware"
+          ]
+        },
+        "filter_status": {
+          "type": "string",
+          "enum": [
+            "peak_performance",
+            "replacement_near",
+            "replacement_required",
+            "unknown",
+            "missing"
+          ]
+        },
+        "filter_age": {
+          "type": "integer"
+        },
+        "filter_max_age": {
+          "type": "integer"
+        }
+      },
+      "type": "object"
+    },
+    "MaterialStation": {
+      "required": [
+        "supported"
+      ],
+      "properties": {
+        "supported": {
+          "type": "boolean"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "available",
+            "unavailable"
+          ]
+        },
+        "material_slots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MaterialStationSlot"
+          }
+        }
+      },
+      "type": "object"
+    },
+    "MaterialStationSlot": {
+      "required": [
+        "compatible",
+        "extruder_index",
+        "material_remaining",
+        "print_core_id",
+        "slot_index"
+      ],
+      "properties": {
+        "slot_index": {
+          "type": "integer"
+        },
+        "extruder_index": {
+          "type": "integer"
+        },
+        "print_core_id": {
+          "type": "string"
+        },
+        "material": {
+          "$ref": "#/definitions/Material"
+        },
+        "material_empty": {
+          "type": "boolean"
+        },
+        "material_remaining": {
+          "type": "number"
+        },
+        "compatible": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "PrinterError": {
+      "required": [
+        "code",
+        "uuid"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "air_manager_fan_speed_unexpected",
+            "air_manager_filter_missing",
+            "air_manager_filter_needs_replacement",
+            "air_manager_missing",
+            "air_manager_not_configured",
+            "build_chamber_temp_critical",
+            "build_chamber_too_hot"
+          ]
+        },
+        "uuid": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$"
+        }
+      },
+      "type": "object"
+    },
+    "Fault": {
+      "required": [
+        "code",
+        "message",
+        "severity",
+        "timestamp",
+        "uuid"
+      ],
+      "properties": {
+        "severity": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "UpdatePrinter": {
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "update_firmware": {
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "start",
+            "stop"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CloudAuthenticationMode": {
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "disconnected",
+            "connecting",
+            "not_configured",
+            "awaiting_pin",
+            "connected"
+          ]
+        },
+        "oauth_login_url": {
+          "type": "string"
+        },
+        "oauth_login_url_disconnect": {
+          "type": "string"
+        },
+        "associated_account_name": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "CloudConnectFlowMode": {
+      "required": [
+        "mode"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "lan_connect_based",
+            "pin_based"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "PIN": {
+      "properties": {
+        "pin": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "Settings": {
+      "required": [
+        "payload"
+      ],
+      "properties": {
+        "payload": {
+          "type": "object"
+        }
+      },
+      "type": "object"
+    },
+    "AuthenticationMode": {
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "open",
+            "cloud"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "CurrentUser": {
+      "required": [
+        "valid"
+      ],
+      "properties": {
+        "valid": {
+          "type": "boolean"
+        },
+        "user_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "profile_image_url": {
+          "type": "string"
+        },
+        "account_management_url": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "detach": {
+      "required": [
+        "authorization_id",
+        "authorization_key"
+      ],
+      "properties": {
+        "authorization_id": {
+          "type": "string"
+        },
+        "authorization_key": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "responses": {
+    "ParseError": {},
+    "MaskError": {},
+    "InvalidUsage": {}
+  }
+}

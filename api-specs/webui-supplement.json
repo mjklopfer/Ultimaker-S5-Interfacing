@@ -1,0 +1,31 @@
+{
+  "basePath": "/api/v1",
+  "paths": {
+    "/printer/network/wifi": {
+      "get": {
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "connected": {
+                  "type": "boolean"
+                },
+                "enabled": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "ssid": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GET /printer/network/wifi"
+      }
+    }
+  }
+}

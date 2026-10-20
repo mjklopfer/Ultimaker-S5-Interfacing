@@ -1,0 +1,10 @@
+{
+  "name": "Cura MCP Bridge",
+  "author": "Local workspace",
+  "version": "0.1.5",
+  "description": "Loopback Cura read/write workspace bridge; operations run on the Cura main thread.",
+  "api": 8,
+  "supported_sdk_versions": [
+    "8.12.0"
+  ]
+}

@@ -1,0 +1,1361 @@
+{
+  "scope": "All register names/patterns found in inspected consumer sources, not every device register",
+  "firmware": "S5 R1 9.0.3",
+  "unresolved": [
+    "wire indices; physical UMB layer; stock bootstrap; monitor delimiter",
+    "LED wire name uses slash in consumer source; validate live name",
+    "dynamic MISP configuration entries and unreferenced firmware registers not exhaustively known"
+  ],
+  "air_firmware_string_candidates_without_verified_paths": [
+    "fanSpeedTarget",
+    "fanAirflowMeasured",
+    "fanCurrentMeasured"
+  ],
+  "registers": [
+    {
+      "role": "air_manager",
+      "name": "data.CountersSetValue.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 131,
+          "pattern": "data.CountersSetValue.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.TimeCounter.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 168,
+          "pattern": "data.TimeCounter.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.TimeCounterNewValue.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 132,
+          "pattern": "data.TimeCounterNewValue.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.VersionSwBuildTime.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 169,
+          "pattern": "data.VersionSwBuildTime.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.ambientTemp.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 167,
+          "pattern": "data.ambientTemp.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.exhaustTemp.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 166,
+          "pattern": "data.exhaustTemp.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.fanAirflowSetPoint.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 173,
+          "pattern": "data.fanAirflowSetPoint.0"
+        },
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 253,
+          "pattern": "data.fanAirflowSetPoint.0"
+        },
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 107,
+          "pattern": "data.fanAirflowSetPoint.0"
+        },
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 108,
+          "pattern": "data.fanAirflowSetPoint.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.fanDutyCycle.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 171,
+          "pattern": "data.fanDutyCycle.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.fanSpeedMeasured.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 170,
+          "pattern": "data.fanSpeedMeasured.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.fanSpeedRatio.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 175,
+          "pattern": "data.fanSpeedRatio.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.fanSwitchPower.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 172,
+          "pattern": "data.fanSwitchPower.0"
+        },
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 213,
+          "pattern": "data.fanSwitchPower.0"
+        },
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 98,
+          "pattern": "data.fanSwitchPower.0"
+        },
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 99,
+          "pattern": "data.fanSwitchPower.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.filterIsPresent.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 174,
+          "pattern": "data.filterIsPresent.0"
+        }
+      ]
+    },
+    {
+      "role": "air_manager",
+      "name": "data.timestamp_ms.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/griffin/griffin/airmanager/airManagerUmbusService.py",
+          "line": 165,
+          "pattern": "data.timestamp_ms.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_controller_left.motors_under_control.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 156,
+          "pattern": "decoupler_controller_{}.motors_under_control.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_controller_right.motors_under_control.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 156,
+          "pattern": "decoupler_controller_{}.motors_under_control.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.crc_error_counter.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 158,
+          "pattern": "decoupler_{}.crc_error_counter.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.distance_max.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 161,
+          "pattern": "decoupler_{}.distance_max.0"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 224,
+          "pattern": "decoupler_{}.distance_max.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.gain.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 192,
+          "pattern": "decoupler_{}.gain.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.offset_bits.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 193,
+          "pattern": "decoupler_{}.offset_bits.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.offset_dis_one.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 194,
+          "pattern": "decoupler_{}.offset_dis_one.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.offset_dis_two.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 195,
+          "pattern": "decoupler_{}.offset_dis_two.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.state.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 157,
+          "pattern": "decoupler_{}.state.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left.write_error_counter.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 159,
+          "pattern": "decoupler_{}.write_error_counter.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_left_storage.error_count.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 160,
+          "pattern": "decoupler_{}_storage.error_count.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.crc_error_counter.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 158,
+          "pattern": "decoupler_{}.crc_error_counter.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.distance_max.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 161,
+          "pattern": "decoupler_{}.distance_max.0"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 224,
+          "pattern": "decoupler_{}.distance_max.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.gain.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 192,
+          "pattern": "decoupler_{}.gain.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.offset_bits.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 193,
+          "pattern": "decoupler_{}.offset_bits.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.offset_dis_one.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 194,
+          "pattern": "decoupler_{}.offset_dis_one.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.offset_dis_two.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 195,
+          "pattern": "decoupler_{}.offset_dis_two.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.state.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 157,
+          "pattern": "decoupler_{}.state.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right.write_error_counter.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 159,
+          "pattern": "decoupler_{}.write_error_counter.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "decoupler_right_storage.error_count.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 160,
+          "pattern": "decoupler_{}_storage.error_count.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "dehumidifier.current_humidity.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 41,
+          "pattern": "dehumidifier.current_humidity.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "dehumidifier.current_temperature.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 42,
+          "pattern": "dehumidifier.current_temperature.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "dehumidifier.dehumidifier_state.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 43,
+          "pattern": "dehumidifier.dehumidifier_state.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "dehumidifier.hw_error.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 45,
+          "pattern": "dehumidifier.hw_error.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "door_sensor.door_opened.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 40,
+          "pattern": "door_sensor.door_opened.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.1",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.10",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.11",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.15",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.2",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.3",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.4",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.5",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.6",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.7",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.8",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "led_driver/led_pwm_output.9",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/led/mispLedManager.py",
+          "line": 19,
+          "pattern": "led_driver/led_pwm_output.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 37,
+          "pattern": "nfc_controller.command.0"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 111,
+          "pattern": "nfc_controller.command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.sector_data.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 90,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 103,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 96,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 110,
+          "pattern": "nfc_controller.sector_data.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.sector_data.1",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 90,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 103,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 96,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 110,
+          "pattern": "nfc_controller.sector_data.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.sector_data.2",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 90,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 103,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 96,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 110,
+          "pattern": "nfc_controller.sector_data.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.sector_data.3",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 90,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 103,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 96,
+          "pattern": "nfc_controller.sector_data.{}"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 110,
+          "pattern": "nfc_controller.sector_data.{}"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.single_position_parameter.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 51,
+          "pattern": "nfc_controller.single_position_parameter.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "nfc_controller.tags_visible.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/nfc/mispNfcDevice.py",
+          "line": 56,
+          "pattern": "nfc_controller.tags_visible.0"
+        },
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 107,
+          "pattern": "nfc_controller.tags_visible.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_0.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 203,
+          "pattern": "prefeeder_{id}.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_0.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 204,
+          "pattern": "prefeeder_{id}.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_0.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 202,
+          "pattern": "prefeeder_{id}.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_0.filament_direction.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 205,
+          "pattern": "prefeeder_{id}.filament_direction.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_0.printer_command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 433,
+          "pattern": "prefeeder_{id}.printer_command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_1.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 203,
+          "pattern": "prefeeder_{id}.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_1.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 204,
+          "pattern": "prefeeder_{id}.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_1.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 202,
+          "pattern": "prefeeder_{id}.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_1.filament_direction.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 205,
+          "pattern": "prefeeder_{id}.filament_direction.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_1.printer_command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 433,
+          "pattern": "prefeeder_{id}.printer_command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_2.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 203,
+          "pattern": "prefeeder_{id}.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_2.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 204,
+          "pattern": "prefeeder_{id}.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_2.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 202,
+          "pattern": "prefeeder_{id}.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_2.filament_direction.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 205,
+          "pattern": "prefeeder_{id}.filament_direction.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_2.printer_command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 433,
+          "pattern": "prefeeder_{id}.printer_command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_3.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 203,
+          "pattern": "prefeeder_{id}.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_3.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 204,
+          "pattern": "prefeeder_{id}.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_3.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 202,
+          "pattern": "prefeeder_{id}.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_3.filament_direction.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 205,
+          "pattern": "prefeeder_{id}.filament_direction.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_3.printer_command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 433,
+          "pattern": "prefeeder_{id}.printer_command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_4.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 203,
+          "pattern": "prefeeder_{id}.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_4.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 204,
+          "pattern": "prefeeder_{id}.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_4.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 202,
+          "pattern": "prefeeder_{id}.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_4.filament_direction.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 205,
+          "pattern": "prefeeder_{id}.filament_direction.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_4.printer_command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 433,
+          "pattern": "prefeeder_{id}.printer_command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_5.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 203,
+          "pattern": "prefeeder_{id}.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_5.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 204,
+          "pattern": "prefeeder_{id}.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_5.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 202,
+          "pattern": "prefeeder_{id}.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_5.filament_direction.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 205,
+          "pattern": "prefeeder_{id}.filament_direction.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "prefeeder_5.printer_command.0",
+      "draft_writable": true,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispSlot.py",
+          "line": 433,
+          "pattern": "prefeeder_{id}.printer_command.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "rewinder.PREV.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 149,
+          "pattern": "rewinder.PREV.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "rewinder.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 148,
+          "pattern": "rewinder.STATE.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "rewinder.TRANSITION_EVENT.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 150,
+          "pattern": "rewinder.TRANSITION_EVENT.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "rewinder.current_prefeeder.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 151,
+          "pattern": "rewinder.current_prefeeder.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "rewinder_motor.enabled.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 153,
+          "pattern": "rewinder_motor.enabled.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "rewinder_motor.output.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 152,
+          "pattern": "rewinder_motor.output.0"
+        }
+      ]
+    },
+    {
+      "role": "material_station",
+      "name": "system_state.STATE.0",
+      "draft_writable": false,
+      "evidence": "installed Linux consumer source; not a live accessory inventory",
+      "sources": [
+        {
+          "path": "/usr/share/misp_service/service/mispService.py",
+          "line": 39,
+          "pattern": "system_state.STATE.0"
+        }
+      ]
+    }
+  ]
+}
