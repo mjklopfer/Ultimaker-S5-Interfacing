@@ -15,6 +15,7 @@ change the linked material's licensing or usage restrictions.
 - [ST NUCLEO-F072RB](https://www.st.com/en/evaluation-tools/nucleo-f072rb.html) and [NUCLEO-F303ZE](https://www.st.com/en/evaluation-tools/nucleo-f303ze.html): suggested separate Air/Material STM32 bench boards; S5 compatibility remains untested.
 - [STM32duino APIs](https://github.com/stm32duino/Arduino_Core_STM32/wiki/API) and [ST AN3155](https://www.st.com/resource/en/application_note/an3155-how-to-use-usart-protocol-in-bootloader-on-stm32-mcus-stmicroelectronics.pdf): framework and standard bootloader references, distinct from S5 chain-control extensions.
 - [Noctua PWM specification](https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf): generic fan-interface guidance; exact installed fan/levels remain unknown.
+- [Air Manager / SMB pinout discussion](https://community.ultimaker.com/topic/39588-air-manager-andor-smb-pinout/): dated user report about feed-forward chamber behavior; no verified pinout or electrical/protocol identification is supplied. See [miscellaneous notes](MISC_NOTES.md).
 - [SHT4x breakout reference](https://learn.adafruit.com/adafruit-sht40-temperature-humidity-sensor/pinouts) and [TCA9548A breakout reference](https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout/pinouts): proposed sensor hardware only.
 
 The printer also serves documentation locally at `/docs/api/` and

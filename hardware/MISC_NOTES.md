@@ -70,3 +70,17 @@ For S5-specific observations, use [S5 R1 interfaces](S5_R1_INTERFACES.md) and th
 linked R1 repair manual. Exact UMB pinout/transceiver identification and physical
 continuity checks remain pending. Only links and authored descriptions are
 included here; no manufacturer source files or schematics are redistributed.
+
+## Air Manager pinout discussion: reported behavior, unresolved wiring
+
+The [2022 Air Manager / SMB pinout discussion](https://community.ultimaker.com/topic/39588-air-manager-andor-smb-pinout/)
+reports a user's experience of chamber temperature being converted through a
+static fan-speed table rather than closed-loop chamber regulation. This is a
+dated user report, not proof of behavior for every firmware revision. It provides
+context for the draft's optional local temperature loop, not a tested integration.
+
+The author asks for a connector pinout and speculates about I2C; the replies do
+not supply a verified pinout or establish I2C, CAN, RJ45, voltage levels or
+transceiver hardware. Suggestions to use base-fan signals are proposals, not
+verified S5 enable interfaces. The source-observed UMB host UART framing and
+external electrical-interface uncertainty remain separate findings.

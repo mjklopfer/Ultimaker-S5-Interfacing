@@ -120,6 +120,28 @@ and the number of chips do not remove those requirements.
 
 ## Validation and next work
 
+### Architecture cleanup audit
+
+The active controller source, examples, metadata, catalog generator and symbolic
+connection plan were rechecked after migration:
+
+- Only the two fixed-role STM32 sketches are supplied; the prior combined-target
+  sketch and concrete pin map are absent.
+- Library metadata selects `architectures=stm32`. The sketch configuration rejects
+  unsupported MCU builds, unconfigured peripherals and simultaneous roles.
+- Register names/flags use ordinary const storage; no target-specific program-memory
+  headers, read helpers or special storage attributes remain.
+- Each role constructs its own configured USART and I2C bus. Pin identifiers use
+  STM32-compatible width; no physical pin assignments are supplied. Wide numeric
+  IDs in the test runner are synthetic syntax fixtures, not a wiring plan.
+- Firmware, sampler and generator sources are synchronized between the local
+  controller package and public project. Historical private checkpoints and old
+  node counts are not the active design.
+
+The printer's existing ATmega motion/heater controller is a separate subsystem.
+Its Linux serial/GPIO and recovery documentation is intentionally retained in
+the printer-interface notes; it is not a replacement-accessory build target.
+
 The local runner tests portable core behavior and reference packets, then syntax
 checks both role sketches with stub APIs in disabled/configured modes. It also
 checks rejection of unsupported architecture, unconfigured UART and simultaneous
