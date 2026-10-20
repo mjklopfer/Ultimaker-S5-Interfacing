@@ -34,7 +34,12 @@ def scan(root=ROOT):
             if name=='credential-url' and relative=='tests/printer-config.test.mjs':continue
             if pattern.search(text):findings.append({'file':relative,'rule':name})
         for match in IPV4.finditer(text):
-            if match.group()!='127.0.0.1':findings.append({'file':relative,'rule':'non-loopback-ipv4'});break
+            if match.group()=='127.0.0.1':continue
+            prefix=text[text.rfind('\n',0,match.start())+1:match.start()]
+            # A labeled, documented firmware version is not a network destination.
+            firmware_version=(match.group()=='9.0.3.0' and re.search(r'\bfirmware\b',prefix,re.I)
+                              and not re.search(r'https?://[^\s]*$',prefix,re.I))
+            if not firmware_version:findings.append({'file':relative,'rule':'non-loopback-ipv4'});break
     return {'files_checked':count,'findings':findings,'passed':not findings}
 
 if __name__=='__main__':

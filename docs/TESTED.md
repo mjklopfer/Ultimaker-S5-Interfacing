@@ -4,7 +4,7 @@
 |---|---|---|
 | Cura | 5.13.0 | Windows desktop workflow: settings changes, staged load, slice/export, native Save and both Save As destination cases |
 | Bridge | Public source 0.1.6 | Bridge and deployment helpers tested offline; public-build desktop checks pending |
-| Printer | UltiMaker S5 R1, firmware 9.0.3 family | Earlier read-only API/source inspection and separately authorized printing/recovery research; not every cataloged write tested |
+| Printer | UltiMaker S5 R1, firmware 9.0.3.0 | Read-only API/source inspection and printing/recovery research; not every cataloged write tested |
 | Node | 20+ required; offline checks on Node 22 | Dependency-free stdio server and mock transport tests |
 | Python | 3.10+ recommended | File/archive/transport fixtures and privacy checks; Cura uses bundled Python |
 | macOS | Hosted macOS offline CI; deployment guide/helpers provided | Platform launch paths and Keychain code provided; updated live Cura/tunnel installation not verified |

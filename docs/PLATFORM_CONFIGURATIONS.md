@@ -7,7 +7,7 @@ No original accounts, hostnames, user paths or device identifiers are included.
 | Item | Windows PC | macOS |
 |---|---|---|
 | Cura target | 5.13.0 | 5.13.0 |
-| Printer interface baseline | S5 R1, firmware 9.0.3 family | Same local HTTP interface; no hardcoded printer origin |
+| Printer interface baseline | S5 R1, firmware 9.0.3.0 | Same local HTTP interface; no hardcoded printer origin |
 | Node | Node 22 used for offline checks; minimum accepted by code is 20 | Same requirement; use a maintained release, with Node 22 as the tested baseline |
 | External Python | Python 3.10+ for printer transport/tools; CI uses 3.12 | Python 3.10+; separate from Cura's bundled Python |
 | Plugin runtime | Cura's own Python/Qt/Uranium | Cura's own Python/Qt/Uranium |

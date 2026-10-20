@@ -5,6 +5,17 @@ plugin, a dependency-free Node stdio MCP server, guarded printer operations, and
 S5 R1 hardware/protocol research. Independent community project; not affiliated
 with or supported by UltiMaker.
 
+## Reference configuration
+
+| Component | Version |
+|---|---|
+| Printer | UltiMaker S5 R1 |
+| Printer firmware | **9.0.3.0** |
+| UltiMaker Cura | **5.13.0** |
+
+These are the versions used for the documented integration. Other versions
+require validation; see [tested versions](docs/TESTED.md).
+
 ## What it provides
 
 - Inspect Cura's machine, extruders, settings, scene and slicer state.
