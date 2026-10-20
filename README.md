@@ -85,6 +85,9 @@ offline tests, an accepted request or a sliced file as proof of a successful pri
 
 Public source release **0.1.7** includes platform deployment guides and original
 install/diagnostic helpers alongside the local bridge.
+The current `main` branch additionally includes the two-STM32 controller draft
+and expanded hardware/NFC research. Those newer notes are not a replacement
+downloadable release asset; use the current branch for the latest research.
 See [changelog](CHANGELOG.md), [sanitization policy](docs/SANITIZATION.md),
 [source references](hardware/SOURCES.md), [notices](NOTICE.md) and [MIT license](LICENSE).
 Vendor firmware, recovery images, service source dumps, raw device captures,

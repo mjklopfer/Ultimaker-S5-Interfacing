@@ -84,3 +84,25 @@ not supply a verified pinout or establish I2C, CAN, RJ45, voltage levels or
 transceiver hardware. Suggestions to use base-fan signals are proposals, not
 verified S5 enable interfaces. The source-observed UMB host UART framing and
 external electrical-interface uncertainty remain separate findings.
+
+## Linux debug console is separate from UMB
+
+The [UM3 repair discussion, page 2](https://community.ultimaker.com/topic/42861-ultimaker-3-suddenly-no-display-and-unresponsive-button/page/2/)
+reports successful Olimex USB-SERIAL-F console access and shows boot/recovery
+output. It is useful related-platform troubleshooting evidence, not a verified
+S5 R1 recovery procedure, image or external UMB pinout.
+
+[Olimex's adapter specification](https://www.olimex.com/Products/USB-Modules/Interfaces/USB-SERIAL-F/)
+states 3.3 V serial output levels. Newer adapters have a separate 5 V supply wire;
+that is not the signaling voltage. Cable revisions differ, and the page itself
+lists different ground colors in different sections: identify the exact cable
+revision and target header before connection, rather than relying on color alone.
+Neither the adapter specification nor the UM3 report establishes the external
+S5 UMB transceiver voltage. The Linux console, motion link and UMB host UART are
+distinct interfaces in the [S5 device map](S5_R1_INTERFACES.md).
+
+The [S3 UMB pinout discussion](https://community.ultimaker.com/topic/38938-s3-umb-out-port-pinouts-data-protocol/)
+also asks for interface information without establishing CAN or a verified
+connector pin assignment. The photographed Material Station cable has circular
+multi-pin ends, not RJ45 Ethernet ends. UART framing observed in Linux does not
+by itself identify the external electrical line driver or its voltage.

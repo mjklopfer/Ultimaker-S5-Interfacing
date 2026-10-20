@@ -85,13 +85,78 @@ These numbers are **register values** written to `prefeeder_n.printer_command.0`
 
 Slot state strings and transition reason numbers come from `mispSlot.py` in the evidence. The application must preserve command acknowledgment versus completion as separate concepts and report transitions based on physical feedback.
 
-NFC register command packing observed in source:
+## NFC over Material Station registers
+
+The saved host NFC wrapper uses the same operational UMB register transport,
+not a separate top-level NFC packet opcode. The following describes source-observed
+host expectations; no live tag transaction or accessory acceptance is validated.
+
+The integer written to `nfc_controller.command.0` packs:
 
 ```text
 command_value = (page << 16) | (bay << 8) | operation
 ```
 
-NFC operation values: NOP 0, SCAN_ONCE 1, SCAN_FOREVER 2, READ 3, WRITE 4, SCAN_FOREVER_SINGLE_POSITION 5, RF regulation test 6. Data uses four 32-bit words in `sector_data.0..3`; source packs/unpacks those words little-endian when converting NFC page bytes. Setting command to zero indicates completion to the Linux service. Page/write addressing and real NFC behavior require validation; do not acknowledge persistent tag writes without a real implementation.
+| Bits | Meaning |
+|---|---|
+| 23..16 | Page/address field, subject to the read/write caveat below |
+| 15..8 | Bay 0..5, corresponding to A..F |
+| 7..0 | Operation |
+
+| Operation | Value |
+|---|---|
+| NOP / completion indication | 0 |
+| SCAN_ONCE | 1 |
+| SCAN_FOREVER | 2 |
+| READ | 3 |
+| WRITE | 4 |
+| SCAN_FOREVER_SINGLE_POSITION | 5 |
+| RF regulation test / selected antenna | 6 |
+
+For example, READ page 2, bay B gives `(2 << 16) | (1 << 8) | 3`,
+hexadecimal `0x020103`, decimal `131331`. The outer UMB command is register write
+`03`; its value string is ASCII `131331`, not three raw packed bytes. Its payload
+is `07 | ASCII 131331 | 00 | discovered index byte 0 | discovered index byte 1`.
+The register-value string length includes its terminating NUL. No fixed original
+register index or accessory address is supplied by this example.
+
+| Register | Source-observed role |
+|---|---|
+| `nfc_controller.command.0` | Packed request; return to zero wakes the host completion event |
+| `nfc_controller.tags_visible.0` | Visibility bitmask; host checks bit 0 for bay A through bit 5 for F |
+| `nfc_controller.single_position_parameter.0` | Bay selection for single-position scanning/test operations |
+| `nfc_controller.sector_data.0` through `.3` | Four unsigned 32-bit values representing a 16-byte transfer |
+
+The numeric values use the ordinary ASCII register representation. For each data
+word, byte conversion is little-endian. For example, value `67305985`
+(`0x04030201`) represents tag bytes `01 02 03 04`.
+
+The Linux service enables monitoring for all four data words and the command
+register, watches the visibility mask, then requests an initial scan. A read
+issues the packed command, waits for completion and gathers the four data words.
+A write stages the four words first, then issues WRITE and waits. The wrapper
+serializes access with a lock because these are shared staging registers.
+Visibility does not establish mechanical filament presence or successful feeding.
+
+### Addressing, timeout and tag-format boundaries
+
+The read wrapper calls a page 16 bytes and increments its page argument once per
+16-byte block. The write wrapper derives its address field as
+`start_byte_offset // 4 + block_index`; the upper adapter also treats read and
+write offsets differently. Do not normalize these into a supposedly verified
+common address unit without real captures and NFC-controller evidence.
+
+The saved wrapper waits for a command-completion event but does not check the
+wait return value before collecting data or returning write success. Consequently
+its return value alone is not proof of successful transfer or persistent storage.
+Multi-block loops use integer division by 16; partial-block semantics are not
+validated. Real completion/error sequencing, stale-data protection and monitoring
+delimiter behavior still need verification.
+
+This establishes a host-side transfer wrapper, not the complete spool-record
+schema, tag authentication/integrity rules, RF protocol, antenna electronics or
+an implemented STM32 NFC backend. Do not acknowledge persistent tag writes
+without real hardware behavior and appropriate error handling.
 
 ## Proposed environmental extension (implemented as read-only fields)
 
