@@ -6,6 +6,7 @@ firmware or drawing is reproduced. A link being publicly reachable does not
 change the linked material's licensing or usage restrictions.
 
 - [Manufacturer S5 R1 electronics repair reference](https://um-support-files.ultimaker.com/manuals/repair-calibration/S-series/UMS5R1%20-%20Electronics.pdf): board/connector context and repair precautions. Linked only; the document carries its own restrictions.
+- [MakerPoint UMB cable L200 (MS)](https://www.makerpoint.nl/en-gb/3d-printing/accessories/parts_all/ultimaker-umb-cable-l200-ms-210000004246): retailer lists manufacturer part 80-214855, 200 mm, for Material Station connection, compatible with S5 R1/R2. The photo shows right-angle circular multi-pin ends; exact connector standard/contact count and electrical pinout are not established. Air Manager compatibility is listed as No; this does not establish a different electrical protocol.
 - [UltiMaker Marlin repository](https://github.com/Ultimaker/UltimakerMarlin): public source reference for related motion-controller interfaces. An upstream branch is not proof of the binary running on a particular printer.
 - [UltiMaker kernel device-tree reference](https://github.com/Ultimaker/um-kernel/blob/master/sun7i/dts/2621-UM3XL.dts): related platform/audio configuration.
 - [UltiMaker hardware repository](https://github.com/Ultimaker/Ultimaker3): older related Olimex interface drawings. They do not settle exact R1 wiring.
