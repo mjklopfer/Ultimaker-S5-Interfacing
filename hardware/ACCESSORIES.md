@@ -2,7 +2,7 @@
 
 This is an interface description, not UltiMaker accessory source code. The
 sample peripheral implementation is original project code and is **untested on
-physical Arduino/S5 hardware**. Host-side observations do not prove full accessory
+physical STM32/S5 hardware**. Host-side observations do not prove full accessory
 firmware behavior, electrical compatibility or startup interoperability.
 
 ## UMB operational link
@@ -21,6 +21,11 @@ A manually addressed operational parser alone is not a stock accessory emulator.
 Monitor delimiter behavior remains ambiguous; see the [protocol draft](umb-controller/PROTOCOL.md).
 
 ## Air Manager
+
+Connection detection includes bootloader discovery, host identity/firmware checks,
+Linux service discovery and an advancing timestamp heartbeat. Filter presence is
+a separate signal. See [startup, identity and health](ACCESSORY_DISCOVERY_AND_HEALTH.md)
+for message structure, status registers and the unresolved controller architecture.
 
 | Register | Value representation / units | Known values or limits | Source-observed consumer access |
 |---|---|---|---|
@@ -55,12 +60,12 @@ These are candidates for implementing a compatible backend, not proven actuator
 wiring. Environmental readings already fit the register-value wire format;
 additional custom fields require host discovery and application/UI support.
 
-## Proposed Arduino IO, not verified stock wiring
+## Proposed STM32 IO, not verified stock wiring
 
 | Block | Potential sensors/actuators | Implementation status |
 |---|---|---|
-| Mode selection | Two active-low boot jumpers | Mode logic modeled |
-| Environment | Four PTFE-protected SHT45 chamber probes plus one material-compartment probe via TCA9548A | Sampling draft; no physical validation |
+| Role enable | One active-low jumper per fixed-role STM32 controller | Separate bench entry points |
+| Environment | Four chamber probes through Air-controller TCA9548A; one material probe on a separate Material-controller bus | Sampling draft; no physical validation |
 | Fan | Conditioned PWM output and tach input through suitable interface electronics | Mathematical duty/RPM models; hardware timer/ISR/driver not implemented |
 | Material feeder | Step/direction drivers, engagement/selector solenoids, arrival/exit/filament sensors | Hardware/backend not implemented |
 | Rewinder/buffer | Motor driver and decoupler/buffer feedback | Sensor type, power and mechanism unresolved |
@@ -71,9 +76,13 @@ and measured RPM to reported RPM. Optional follow/trim/local PI logic can use
 selected environmental probes. This is an experimental local control model;
 airflow conversion, real gains, fault policies and actual fan behavior need tests.
 
-The Mega 2560 is a provisional first prototype. Classic Mini/Pro Mini RAM/IO are
-restrictive for combined accessory roles. Expanders do not solve timing/memory.
-Use external power stages and the correct, still-unresolved UMB transceiver.
-The [conceptual node list](umb-controller/CONCEPTUAL_CONNECTIONS.md) is not a
-stock pinout. Transport, actuator outputs and register writes remain disabled
-by default. Do not report fabricated healthy/loaded states for missing hardware.
+The design requires two STM32 controllers, one per accessory role, because native
+startup uses distinct STM32 chip-ID/memory profiles. Suggested bench boards are
+NUCLEO-F072RB and NUCLEO-F303ZE. See the [STM32 plan](umb-controller/STM32_DEPLOYMENT.md)
+and [conceptual node list](umb-controller/CONCEPTUAL_CONNECTIONS.md). These are not
+validated replacements. Stock bootstrap, firmware-update ownership, UMB interface
+and real hardware drivers remain unresolved. Transport, outputs and stock writes
+default disabled; never fabricate healthy states for missing hardware.
+
+For other configured types, generic register/D-Bus operations and original
+accessory concepts, see the [UMB extension map](UMB_EXTENSION_MAP.md).

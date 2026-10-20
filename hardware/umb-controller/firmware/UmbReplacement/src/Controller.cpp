@@ -18,7 +18,7 @@ static bool customName(size_t index, char* out, size_t cap) {
 }
 static bool fixedHundredths(float value, char* out, size_t cap) {
   if (!isfinite(value) || value < -100000 || value > 100000) return false;
-  // Avoid AVR printf float support and heap-backed Arduino String.
+  // Keep formatting bounded and avoid heap-backed String.
   const long scaled = lroundf(value * 100.0f);
   const unsigned long magnitude = scaled < 0 ? static_cast<unsigned long>(-scaled) : static_cast<unsigned long>(scaled);
   const int n = snprintf(out, cap, "%s%lu.%02lu", scaled < 0 ? "-" : "", magnitude/100, magnitude%100);

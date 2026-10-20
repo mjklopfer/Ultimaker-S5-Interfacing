@@ -12,7 +12,10 @@ struct SerialStub {
   size_t write(const uint8_t*,size_t n) { return n; }
   void println(const char*) {}
 };
-extern SerialStub Serial,Serial1;
+struct HardwareSerial : SerialStub {
+  HardwareSerial(uint32_t,uint32_t) {}
+};
+extern SerialStub Serial;
 unsigned long millis();
-void pinMode(uint8_t,uint8_t);
-int digitalRead(uint8_t);
+void pinMode(uint32_t,uint8_t);
+int digitalRead(uint32_t);

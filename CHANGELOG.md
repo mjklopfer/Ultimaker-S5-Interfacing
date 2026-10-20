@@ -1,5 +1,12 @@
 # Changelog
 
+## Controller draft 0.2.0
+
+- Separate STM32 Air Manager and Material Station bench targets; suggested Nucleo boards and 3.3 V signal plan.
+- Native startup identity, firmware-check/reset requirements and accessory health map.
+- Generic UMB/D-Bus extension map, independent probe buses and disabled build guards.
+- Physical pin assignments, real STM32 builds, startup and hardware compatibility remain unvalidated.
+
 ## 0.1.7
 
 - Reference Cura and printer firmware versions in the setup documentation.

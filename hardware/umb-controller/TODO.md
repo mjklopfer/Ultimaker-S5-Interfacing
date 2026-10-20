@@ -13,8 +13,14 @@
 
 ## Protocol / S5 integration
 
+- [ ] Use [startup/health requirements](../ACCESSORY_DISCOVERY_AND_HEALTH.md) as an architecture gate before finalizing both STM32 front ends.
+- [ ] Confirm both saved chip-ID mappings on candidate boards and full bootstrap exchange; resolve flash-check/update ownership without fabricated identity/version replies.
+- [ ] Choose and document stock-compatible startup versus an explicitly adapted Linux host; neither is implemented.
+- [ ] Validate timestamp freshness/reset/wrap, expected-accessory configuration, filter removal, service failure and truthful subsystem readiness.
+- [ ] Validate Material Station calibration/error bitmaps, bay transitions and missing-backend behavior; no equivalent MISP timestamp heartbeat is established.
+
 - [ ] Passive capture of genuine startup, address assignment, operational traffic and watchdog timing.
-- [ ] Determine whether one MCU can present two logical roles under stock bootloader discovery.
+- [ ] Validate two separate fixed-role STM32 controllers in the real chain; one-IC dual identity is outside the selected design.
 - [ ] Resolve monitor delimiter using raw captures; verify reply ACK/error semantics and values/types.
 - [ ] Enumerate all actual register names/indices, permissions and any dynamic MISP configuration fields.
 - [ ] Validate duty-cycle scaling, speed ratio algorithm and stock environmental field semantics.
@@ -24,7 +30,7 @@
 
 ## Fan and environment
 
-- [ ] Real Arduino target compile; inspect linker report, SRAM/stack margin and UART timing under load.
+- [ ] Both real STM32 target compiles; inspect linker report, SRAM/stack margin and UART timing under load.
 - [ ] Choose 25 kHz PWM hardware driver, electrical interface and atomic tach acquisition.
 - [ ] Calibrate fan tach; retain raw counts/RPM with reported RPM and calibration version.
 - [ ] Build actual housing/filter airflow -> nominal PWM conversion; no implicit m3/h = percent rule.
@@ -50,8 +56,8 @@
 - [x] Design/requirements and confidence-labeled hardware inventory.
 - [x] Source-derived 95-entry stock register catalog and proposed 20-field environmental extension.
 - [x] Operational peripheral packet parser/dispatcher; CRC, discovery, read/write/monitor handling.
-- [x] Role jumpers modeled; two bench addresses; disabled sketch entry point.
+- [x] Separate STM32 role sketches, active-low enables, unassigned pins and disabled peripherals.
 - [x] Five-sensor sampling draft; tach/RPM model; two ten-point lookup tables.
 - [x] Optional follow/trim/local PI control model.
 - [x] Native C++ tests, Python reference tests and sketch syntax check.
-- [ ] Actual AVR compile, electrical testing and physical printing/material handling.
+- [ ] Actual STM32 compiles, electrical testing and physical printing/material handling.

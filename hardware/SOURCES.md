@@ -9,7 +9,8 @@ change the linked material's licensing or usage restrictions.
 - [UltiMaker Marlin repository](https://github.com/Ultimaker/UltimakerMarlin): public source reference for related motion-controller interfaces. An upstream branch is not proof of the binary running on a particular printer.
 - [UltiMaker kernel device-tree reference](https://github.com/Ultimaker/um-kernel/blob/master/sun7i/dts/2621-UM3XL.dts): related platform/audio configuration.
 - [UltiMaker hardware repository](https://github.com/Ultimaker/Ultimaker3): older related Olimex interface drawings. They do not settle exact R1 wiring.
-- [Arduino Mega pin reference](https://docs.arduino.cc/resources/pinouts/A000067-full-pinout.pdf): proposed controller allocation, not S5 stock connector numbering.
+- [ST NUCLEO-F072RB](https://www.st.com/en/evaluation-tools/nucleo-f072rb.html) and [NUCLEO-F303ZE](https://www.st.com/en/evaluation-tools/nucleo-f303ze.html): suggested separate Air/Material STM32 bench boards; S5 compatibility remains untested.
+- [STM32duino APIs](https://github.com/stm32duino/Arduino_Core_STM32/wiki/API) and [ST AN3155](https://www.st.com/resource/en/application_note/an3155-how-to-use-usart-protocol-in-bootloader-on-stm32-mcus-stmicroelectronics.pdf): framework and standard bootloader references, distinct from S5 chain-control extensions.
 - [Noctua PWM specification](https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf): generic fan-interface guidance; exact installed fan/levels remain unknown.
 - [SHT4x breakout reference](https://learn.adafruit.com/adafruit-sht40-temperature-humidity-sensor/pinouts) and [TCA9548A breakout reference](https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout/pinouts): proposed sensor hardware only.
 

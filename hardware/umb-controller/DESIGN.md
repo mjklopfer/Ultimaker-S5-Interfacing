@@ -1,43 +1,34 @@
 # Replacement accessory design
 
-## System boundary
+## System boundary and required architecture
 
-The goal is one Arduino-type controller that presents Air Manager and/or Material Station behavior to an S5, receives UMB demands, controls local hardware, and returns measurements/state. Both mode means **two logical devices**, not two uncontrolled masters.
+Use two physical STM32 controllers, each with one fixed accessory role. The Air
+controller owns fan control and chamber probes. The Material controller owns its
+material-compartment probe and station sensors/actuators. A shared carrier PCB is
+possible; discovery, reset and firmware remain separate per controller.
 
-```mermaid
-flowchart LR
- S5["S5 Linux: UMB host"] <--> E["Electrical adapter + bootstrap: unresolved"]
- E <--> R["Operational dispatcher: two logical addresses"]
- R <--> A["Air Manager register backend"]
- R <--> M["Material Station register backend"]
- A --> C["Follow / trim / local temperature loop"]
- C --> L["10-point PWM correction"]
- L --> F["25 kHz output -> fan"]
- F --> T["Tach -> raw RPM -> calibration -> reported RPM"]
- T --> A
- Q["4 chamber + 1 material SHT45 via TCA9548A"] --> A
- Q --> M
- M <--> H["Feeder / selector / rewinder / sensors / LEDs / dryer backend"]
-```
+STM32 is required for this project because the observed stock S5 host expects an
+STM32 bootloader interface and distinct chip-ID/memory configurations before
+starting accessory services. The application framework may be STM32duino; the
+programming framework does not implement that startup contract.
 
-## Jumper roles
+See [STM32 boards and deployment](STM32_DEPLOYMENT.md),
+[startup and health](../ACCESSORY_DISCOVERY_AND_HEALTH.md), and the
+[two-controller node plan](CONCEPTUAL_CONNECTIONS.md). Suggested bench boards are
+NUCLEO-F072RB for Air and NUCLEO-F303ZE for Material. Neither is validated on S5.
 
-Use pull-ups and sample jumpers at boot. Low means enabled. A missing/open jumper reads high.
-
-| AIR pin | MATERIAL pin | Role |
-|---|---|---|
-| High | High | Disabled/bench only |
-| Low | High | Air Manager |
-| High | Low | Material Station |
-| Low | Low | Both |
-
-The bench sketch manually attaches Material at address 0 and Air at 1 in both mode, or the sole device at 0. These are **bench choices, not established stock address assignments**. Real addresses must be negotiated. Changing jumper identity during operation is not supported.
+Each role sketch samples one active-low enable jumper. Open disables that
+controller; closed enables its fixed compiled role. Two controllers support both
+features. Jumpers do not change MCU identity or select both roles on one chip.
 
 ## Largest integration dependency: startup
 
-The operational protocol is understood, but the stock Linux UMB daemon does more before reading registers: resets/enumerates STM32 devices, reads chip identification/options, verifies or updates firmware, starts application code, assigns an address and enables the next physical link. An Arduino AVR does not implement this STM32 bootstrap by default. The daemon infers accessory identity from known MCU configuration; merely answering register reads at address 0 is insufficient.
-
-One MCU serving two logical roles may also need to emulate physical chain enumeration/gating. The protocol router demonstrates operational address dispatch, not successful stock enumeration. We must capture real startup and determine whether a compatible front-end, separate logical endpoints, or an explicitly modified Linux bootstrap adapter is required. No firmware flashing/erasing/reset implementation is included. This dependency could change the final MCU/interface choice.
+Matching STM32 families remove the need for one chip to present two native
+identities. They do not solve boot entry, chain gating, custom-firmware ownership,
+flash checks, register semantics or real hardware control. Normal host startup
+can erase/program the selected stock image. The exact application-entry helper
+and full bootloader exchange still require tracing. No bootloader/programming
+implementation is included. Manual bench address zero is not real enumeration.
 
 ## Fan control and telemetry
 
@@ -45,7 +36,7 @@ Confirmed standard Noctua interface, conditional on the installed model/wiring: 
 
 The draft `FanModel` converts an edge-count delta over elapsed milliseconds to raw RPM, applies the optional RPM calibration, and tracks freshness. A zero-edge interval reports zero speed, not a fabricated healthy RPM. Do not remap RPM to satisfy S5 expectations while hiding a stopped, obstructed or mismatched fan. Both raw and reported RPM should be logged.
 
-Physical fan PWM output and tach ISR are not implemented. Default Arduino `analogWrite()` frequency is not the Noctua target. A proposed Mega output is OC3A/D5 using Timer3, with a separate tach interrupt input such as D2. Verify pin/timer ownership before implementation. Keep 24 V off MCU and signal pins. Noctua's paper recommends a CMOS driving circuit rather than an assumed open-collector PWM output; tach feedback itself is open collector. A 24 V fan's tach pull-up current must respect its 2 mA limit. Final circuit values await the actual fan/interface review.
+Physical fan PWM output and tach ISR are not implemented. Default Arduino `analogWrite()` frequency is not the Noctua target. Select a suitable STM32 timer channel and tach capture/interrupt after checking board alternate functions, ROM boot UART, SWD and chain-control ownership; no concrete pin/timer is assigned. Keep 24 V off MCU and signal pins. Noctua's paper recommends a CMOS driving circuit rather than an assumed open-collector PWM output; tach feedback itself is open collector. A 24 V fan's tach pull-up current must respect its 2 mA limit. Final circuit values await the actual fan/interface review.
 
 ### Units and three separate conversions
 
@@ -79,7 +70,7 @@ Planned diagnostics, not yet wired as extra registers: control mode, raw airflow
 
 ## Environmental sensing
 
-Use five SHT45 PTFE-covered breakout boards, one each on TCA9548A channels 0..4 at sensor address 0x44. Channels 0..3 belong to the print chamber and channel 4 to material storage. The proposed `custom.*` register bank exposes ten readings plus per-sensor validity and age. Custom registers appear in both draft profiles for convenient discovery; this does not populate stock UI fields automatically.
+Use five PTFE-covered SHT45 probes at address 0x44: four through Air-controller TCA9548A channels 0..3 and one directly on the separate Material-controller I2C bus. Air populates environment slots 0..3; Material populates slot 4; unsampled remote slots remain invalid. The proposed `custom.*` register bank exposes ten readings plus per-sensor validity and age. Custom registers appear in both draft profiles for convenient discovery; this does not populate stock UI fields automatically.
 
 The provided sampler sequences one sensor at a time, requests SHT4x high-precision measurement 0xFD, waits without delay(), validates both sensor CRCs (0x31 polynomial, initial FF), converts temperature/RH and timestamps results. Default sampling period is approximately two seconds after a sweep; proposed stale threshold is ten seconds. Sensor CRC is distinct from UMB CRC (0x07). MCU/I2C timeout settings and routing noise still need testing.
 
@@ -100,8 +91,8 @@ NFC support is separate from material transport. Third-party materials can be ma
 | Function | Direct MCU I/O estimate | Confidence |
 |---|---:|---|
 | One UMB UART | 2 + possible transceiver enable/reset | Framing confirmed; electrical control lines unknown |
-| Role jumpers | 2 | Proposed |
-| TCA9548A + five SHT45 | 2 shared I2C + optional reset | Proposed, does not consume two pins per sensor |
+| Fixed-role enable jumpers | One per controller | Proposed |
+| Chamber probes and material probe | Separate local I2C buses; Air mux channels 0..3, Material direct | Proposed |
 | Fan command / tach | 2 | Standard fan interface; installed wiring pending |
 | STEP/DIR for one stepper per bay | 12 + enable(s) | Illustrative architecture, NOT verified stock motor count |
 | Two filament detection inputs per bay | up to 12 | Events exist; physical implementation/count pending |
@@ -113,22 +104,22 @@ NFC support is separate from material transport. Third-party materials can be ma
 | NFC + antenna selection | bus + chip selects/control, TBD | Six-bay selection software confirmed |
 | Dryer fan/heater/valve/endstops | TBD | State names confirm functions, not circuits |
 
-This quickly exceeds a Mini-class direct-I/O budget. A Mega can start the prototype; I2C GPIO/LED expansion can handle slow indicators/inputs, while time-sensitive step/tach/PWM signals stay on deterministic MCU peripherals. Motor drivers and solenoid switches are needed regardless of MCU size. Use regulated 24 V-to-logic supply circuitry; do not power the MCU directly from a 24 V fan rail. The final design may benefit from a modern 32-bit MCU or separate motion I/O modules.
+The Material STM32 needs a reviewed I/O/timer budget for the chosen mechanism. Slow GPIO/LED expansion is possible; deterministic step/tach/PWM functions stay on appropriate MCU peripherals. External drivers and regulated power are required. See STM32_DEPLOYMENT.md for the two-board division.
 
 ## Milestones / acceptance
 
-1. Offline protocol and domain tests (provided); verify exact Arduino target compile and resource use next.
+1. Offline protocol and domain tests (provided); verify both STM32 target compiles and resource use next.
 2. Board photographs and schematic/continuity work: identify UMB electrical layer, pinout, power, chain gating and sensor/actuator wiring.
 3. Passive startup/operational capture with a genuine accessory; resolve delimiter, register units, discovery, delays and watchdogs.
 4. Bench sensor/fan controller: real 25 kHz waveform, tach pulse checks, table interpolation, sensor removal, stalled rotor, startup behavior.
 5. Identify electrical/bootstrap interface capable of a single role first; prove device recognition without fake stock state.
 6. Build one feeder path on a bench using 2.85 mm filament. Validate feed, retract, park, tension, selector feedback and recovery. Expand to both extrusion paths and then six bays.
 7. Tune airflow conversion with actual housing/filter; validate identity mode before enabling local temperature trim. Test closed-loop mode last, including target unreachable, sensor stale and communication loss.
-8. Validate both logical roles together and truthful S5 telemetry, then endurance tests and documentation updates.
+8. Validate both physical controllers together and truthful S5 telemetry, then endurance tests and documentation updates.
 
 ## References
 
-- Arduino Mega hardware: https://docs.arduino.cc/hardware/mega-2560/
+- STM32 boards: see STM32_DEPLOYMENT.md
 - Noctua PWM/tach specification: https://cdn.noctua.at/media/Noctua_PWM_specifications_white_paper.pdf
 - SHT45: https://sensirion.com/products/catalog/SHT45
 - PTFE SHT45: https://sensirion.com/products/catalog/SHT45-AD1F/

@@ -9,7 +9,7 @@
 | Python | 3.10+ recommended | File/archive/transport fixtures and privacy checks; Cura uses bundled Python |
 | macOS | Hosted macOS offline CI; deployment guide/helpers provided | Platform launch paths and Keychain code provided; updated live Cura/tunnel installation not verified |
 | Linux | Offline server checks | Hosted offline CI; not a supported credential-pairing desktop deployment |
-| Arduino | Portable C++11/native + stub sketch tests | No target AVR compile, timing/memory, electrical or accessory interoperability result |
+| STM32 controller draft | Portable C++11/native, role-local sensor tests, both role-sketch stub paths and build guards | No real STM32 core compile, timing/memory, electrical or accessory interoperability result |
 
 No raw logs, screenshots, printer UUIDs, firmware dumps, backup metadata, project
 files, workstation paths or personal test evidence are included. Public test

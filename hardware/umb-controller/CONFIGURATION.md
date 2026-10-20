@@ -2,11 +2,21 @@
 
 ## Select role and endpoint behavior
 
-`ReplacementBench.ino` samples two active-low jumpers at boot. `Router` routes two operational addresses to `ReplacementDevice` objects. `ReplacementDevice` looks up stock endpoint names from `ObservedCatalog.h` and calls `Hardware::read/write(role,name,...)`; it handles the custom environmental registers itself.
+Use `AirManagerBench.ino` on the Air STM32 and `MaterialStationBench.ino` on
+the Material STM32. Each has one fixed role and a separate active-low enable
+jumper after explicit pin configuration. No pins or peripherals are enabled by
+default. See [STM32 build macros and board requirements](STM32_DEPLOYMENT.md).
 
-To develop a hardware backend, subclass `umb::Hardware`. Implement only the fields backed by actual measurements or state. A write return value `Ok` means the command was accepted; material movement completion belongs in subsequent state feedback. The default hardware class returns unavailable for everything. Global writes must also be enabled deliberately with `router.enableWrites(true)` during a validated bench phase.
+`ReplacementDevice` looks up stock names in `ObservedCatalog.h` and delegates
+hardware fields to `umb::Hardware`. The default backend rejects unsupported
+reads/writes. Implement only real measurements and states. Command acceptance
+does not prove motion completion; subsequent feedback must reflect hardware.
+Global stock writes remain disabled in both sketches.
 
-Do not set `ENABLE_UMB_TRANSPORT` true before electrical and startup review. The manually attached addresses do not implement enumeration. Do not reuse the stock printer's serial port as a second master.
+The shared router can model multiple addresses in native fixtures, but the
+selected deployment uses one role per STM32. Each isolated fixture's address
+zero must be replaced by working host-negotiated startup before real integration.
+Do not use an accessory as a second master on the printer bus.
 
 ## Fan calibration
 
@@ -57,6 +67,6 @@ No telemetry override should create plausible RPM when the rotor is stopped or s
 
 ## Hardware I/O
 
-The sensor sampler is the only included physical-I2C draft and starts disabled. It uses Wire at 100 kHz, TCA9548A 0x70 and SHT45 0x44; channels 0..3 chamber and 4 material. Board I2C pull-ups, cable length and library timing need validation. Keep UMB packet processing ahead of sensor work. A faulting I2C bus must not block UMB indefinitely.
+The sensor sampler is the only included physical-I2C draft and starts disabled. It uses an explicit per-controller TwoWire bus at 100 kHz. Air samples four SHT45 0x44 probes through TCA9548A 0x70 channels 0..3; Material samples one SHT45 0x44 directly on its independent bus. The environment model stores these at slots 0..3 and 4 respectively; remote slots remain invalid. Board I2C pull-ups, cable length and library timing need validation. Keep UMB packet processing ahead of sensor work. A faulting I2C bus must not block UMB indefinitely.
 
-No STEP/DIR, solenoid, selector, heater, valve or fan-output pins are driven in this version. The provisional Mega pins are an allocation sketch only. Choose actual pins after electrical review and timer/interrupt budgeting. Pin expanders may serve slow controls/indicators but not time-critical step generation or tach capture without a suitable dedicated controller.
+No STEP/DIR, solenoid, selector, heater, valve or fan-output pins are driven in this version. All STM32 physical pins remain unassigned symbolic reservations. Choose actual pins after electrical review and timer/interrupt budgeting. Pin expanders may serve slow controls/indicators but not time-critical step generation or tach capture without a suitable dedicated controller.

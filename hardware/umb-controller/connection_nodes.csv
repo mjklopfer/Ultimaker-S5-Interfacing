@@ -1,261 +1,259 @@
 net,component,pin,direction,domain,status,notes
-P24_IN,J_PWR24,PLUS,supply,24V power,R,Proposed separate supply; not an assigned UMB power pin
-P24_IN,F_MAIN,IN,passive,24V power,R,Proposed separate supply; not an assigned UMB power pin
-P24_FUSED,F_MAIN,OUT,passive,24V power,R,Fuse ratings and supply capacity pending
-P24_FUSED,F_FAN,IN,passive,24V power,R,Fuse ratings and supply capacity pending
-P24_FUSED,F_LOGIC,IN,passive,24V power,R,Fuse ratings and supply capacity pending
-FAN_24V,F_FAN,OUT,passive,24V fan power,P,Fan rating user-reported; exact model and connector orientation pending
-FAN_24V,FAN1,VCC,power input,24V fan power,P,Fan rating user-reported; exact model and connector orientation pending
-LOGIC_24V,F_LOGIC,OUT,passive,24V power,R,Regulated converter selection pending
-LOGIC_24V,U_PWR5,VIN,power input,24V power,R,Regulated converter selection pending
-LOGIC_5V,U_PWR5,VOUT,supply,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,U_PWR_SELECT,EXTERNAL_5V,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,U_MUX,VIN,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,U_PWM,VCC,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,R_PWM_BOOT,1,passive,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,R_TACH_PULLUP,1,passive,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,S_C0,VIN,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,S_C1,VIN,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,S_C2,VIN,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,S_C3,VIN,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-LOGIC_5V,S_M0,VIN,power input,5V regulated power,P,Specified 5V-compatible Adafruit sensor breakouts only; bare SHT45 cannot use 5V
-MCU_5V,U_PWR_SELECT,SELECTED_5V,supply,5V regulated power,R,Power selector design must address USB VBUS backfeed/source contention
-MCU_5V,U_MCU,5V,power input,5V regulated power,R,Power selector design must address USB VBUS backfeed/source contention
-LOCAL_GND,J_PWR24,MINUS,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,U_PWR5,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,U_PWR_SELECT,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,U_MCU,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,U_MUX,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,U_PWM,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,FAN1,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,JP_AIR,2,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,JP_MATERIAL,2,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,S_C0,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,S_C1,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,S_C2,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,S_C3,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-LOCAL_GND,S_M0,GND,passive,local return,P,Local logic/fan reference; high-current routing separate; no assumed UMB/chassis/PE bond
-ACTUATOR_RAW,J_ACT_PWR,PLUS,supply,actuator voltage TBD,R,Do not assume 24V before motor/coil ratings
-ACTUATOR_RAW,F_ACT,IN,passive,actuator voltage TBD,R,Do not assume 24V before motor/coil ratings
-ACTUATOR_V,F_ACT,OUT,passive,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_V,DRV_F0,POWER_INPUT,power input,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_V,DRV_F1,POWER_INPUT,power input,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_V,DRV_F2,POWER_INPUT,power input,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_V,DRV_F3,POWER_INPUT,power input,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_V,DRV_F4,POWER_INPUT,power input,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_V,DRV_F5,POWER_INPUT,power input,actuator voltage TBD,R,"Six STEP/DIR driver positions are a proposed architecture, not stock motor count"
-ACTUATOR_RETURN,J_ACT_PWR,MINUS,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ACTUATOR_RETURN,DRV_F0,POWER_RETURN,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ACTUATOR_RETURN,DRV_F1,POWER_RETURN,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ACTUATOR_RETURN,DRV_F2,POWER_RETURN,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ACTUATOR_RETURN,DRV_F3,POWER_RETURN,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ACTUATOR_RETURN,DRV_F4,POWER_RETURN,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ACTUATOR_RETURN,DRV_F5,POWER_RETURN,passive,actuator power return,R,Not automatically bonded to LOCAL_GND; join only if reviewed driver interface requires it
-ROLE_AIR,U_MCU,D22,input/pullup,5V logic,P,Close jumper to LOCAL_GND to enable role at boot
-ROLE_AIR,JP_AIR,1,passive,5V logic,P,Close jumper to LOCAL_GND to enable role at boot
-ROLE_MATERIAL,U_MCU,D23,input/pullup,5V logic,P,Close jumper to LOCAL_GND to enable role at boot
-ROLE_MATERIAL,JP_MATERIAL,1,passive,5V logic,P,Close jumper to LOCAL_GND to enable role at boot
-UMB_TX_MCU,U_MCU,D18,output/TX1,5V logic,R,UART MCU side only; adapter must accept 5V logic; external bus remains disconnected
-UMB_TX_MCU,U_UMB,MCU_TX_INPUT,logic input,5V logic,R,UART MCU side only; adapter must accept 5V logic; external bus remains disconnected
-UMB_RX_MCU,U_UMB,MCU_RX_OUTPUT,logic output,5V logic,R,Adapter must deliver Mega-compatible level; no external UMB pin assignment
-UMB_RX_MCU,U_MCU,D19,input/RX1,5V logic,R,Adapter must deliver Mega-compatible level; no external UMB pin assignment
-UMB_CTRL0,U_MCU,D6,reserved,5V logic,R,Reserve only; not assumed DE/RE/reset
-UMB_CTRL0,U_UMB,OPTIONAL_CTRL0,unknown,5V logic,R,Reserve only; not assumed DE/RE/reset
-UMB_CTRL1,U_MCU,D7,reserved,5V logic,R,Reserve only; not assumed DE/RE/reset
-UMB_CTRL1,U_UMB,OPTIONAL_CTRL1,unknown,5V logic,R,Reserve only; not assumed DE/RE/reset
-UMB_CTRL2,U_MCU,D8,reserved,5V logic,R,Reserve only; not assumed DE/RE/reset
-UMB_CTRL2,U_UMB,OPTIONAL_CTRL2,unknown,5V logic,R,Reserve only; not assumed DE/RE/reset
-UMB_BUS_UNKNOWN,U_UMB,BUS_SIDE_UNKNOWN,unknown,UNKNOWN,H,No connector numbers or electrical standard established; DO NOT WIRE
-UMB_BUS_UNKNOWN,J_UMB,CONTACTS_UNASSIGNED,unknown,UNKNOWN,H,No connector numbers or electrical standard established; DO NOT WIRE
-UMB_REF_UNKNOWN,U_UMB,BUS_REF_UNKNOWN,unknown,UNKNOWN,H,Isolation/reference relationship not established; DO NOT BOND TO LOCAL_GND
-UMB_REF_UNKNOWN,J_UMB,REFERENCE_UNASSIGNED,unknown,UNKNOWN,H,Isolation/reference relationship not established; DO NOT BOND TO LOCAL_GND
-UMB_CHAIN_UNKNOWN,U_UMB,CHAIN_UNKNOWN,unknown,UNKNOWN,H,Both-role startup and chain gating unresolved
-UMB_CHAIN_UNKNOWN,J_UMB_DOWNSTREAM,CONTACTS_UNASSIGNED,unknown,UNKNOWN,H,Both-role startup and chain gating unresolved
-I2C_SDA,U_MCU,D20,bidirectional,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SDA,U_MUX,SDA,I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SDA,U_GPIO_IN,SDA,optional I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SDA,U_GPIO_OUT,SDA,optional I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SDA,U_LED,SDA,optional I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SCL,U_MCU,D21,clock output,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SCL,U_MUX,SCL,I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SCL,U_GPIO_IN,SCL,optional I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SCL,U_GPIO_OUT,SCL,optional I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-I2C_SCL,U_LED,SCL,optional I2C,5V logic,P,"Optional expansion boards require voltage-compatible interface, unique addresses and pullup review"
-C0_SDA,U_MUX,SD0,I2C channel,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C0_SDA,S_C0,SDA,I2C,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C0_SCL,U_MUX,SC0,I2C channel,5V logic,P,Chamber
-C0_SCL,S_C0,SCL,I2C,5V logic,P,Chamber
-C1_SDA,U_MUX,SD1,I2C channel,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C1_SDA,S_C1,SDA,I2C,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C1_SCL,U_MUX,SC1,I2C channel,5V logic,P,Chamber
-C1_SCL,S_C1,SCL,I2C,5V logic,P,Chamber
-C2_SDA,U_MUX,SD2,I2C channel,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C2_SDA,S_C2,SDA,I2C,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C2_SCL,U_MUX,SC2,I2C channel,5V logic,P,Chamber
-C2_SCL,S_C2,SCL,I2C,5V logic,P,Chamber
-C3_SDA,U_MUX,SD3,I2C channel,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C3_SDA,S_C3,SDA,I2C,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-C3_SCL,U_MUX,SC3,I2C channel,5V logic,P,Chamber
-C3_SCL,S_C3,SCL,I2C,5V logic,P,Chamber
-M0_SDA,U_MUX,SD4,I2C channel,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-M0_SDA,S_M0,SDA,I2C,5V logic,P,One SHT45 at 0x44 per channel; breakout downstream pullups; not a shared parallel 0x44 bus
-M0_SCL,U_MUX,SC4,I2C channel,5V logic,P,Material compartment
-M0_SCL,S_M0,SCL,I2C,5V logic,P,Material compartment
-MUX_RESET_N,U_MCU,D46,reserved reset output,5V logic,R,Optional; leave breakout default pullup until implemented; active low
-MUX_RESET_N,U_MUX,RST,input,5V logic,R,Optional; leave breakout default pullup until implemented; active low
-FAN_PWM_MCU,U_MCU,D5,output/OC3A,5V logic,P,25kHz non-inverted PWM; proposed 10k buffer-input pullup requests full duty on MCU reset
-FAN_PWM_MCU,U_PWM,IN,logic input,5V logic,P,25kHz non-inverted PWM; proposed 10k buffer-input pullup requests full duty on MCU reset
-FAN_PWM_MCU,R_PWM_BOOT,2,passive,5V logic,P,25kHz non-inverted PWM; proposed 10k buffer-input pullup requests full duty on MCU reset
-FAN_PWM_BUFFER,U_PWM,OUT,CMOS output,5V logic,P,Non-inverting CMOS interface; exact part/enable circuitry pending
-FAN_PWM_BUFFER,R_PWM_SERIES,1,passive,5V logic,P,Non-inverting CMOS interface; exact part/enable circuitry pending
-FAN_PWM_LINE,R_PWM_SERIES,2,passive,5V logic,P,Proposed 100R series; fan has internal pullup; never connect to 24V
-FAN_PWM_LINE,FAN1,PWM,logic input,5V logic,P,Proposed 100R series; fan has internal pullup; never connect to 24V
-FAN_TACH_RAW,FAN1,TACH,open-collector output,5V logic,P,4.7k to 5V gives about 1.06mA sink current; standard fan interface needs actual model check
-FAN_TACH_RAW,R_TACH_PULLUP,2,passive,5V logic,P,4.7k to 5V gives about 1.06mA sink current; standard fan interface needs actual model check
-FAN_TACH_RAW,R_TACH_SERIES,1,passive,5V logic,P,4.7k to 5V gives about 1.06mA sink current; standard fan interface needs actual model check
-FAN_TACH_MCU,R_TACH_SERIES,2,passive,5V logic,P,Proposed 1k series; two pulses/rev; atomic counter snapshot
-FAN_TACH_MCU,U_MCU,D2,interrupt input,5V logic,P,Proposed 1k series; two pulses/rev; atomic counter snapshot
-FEED_0_STEP,U_MCU,D24,output/STEP,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_0_STEP,DRV_F0,STEP_INTERFACE,logic input,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_0_DIR,U_MCU,D25,output/DIR,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_0_DIR,DRV_F0,DIR_INTERFACE,logic input,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_1_STEP,U_MCU,D26,output/STEP,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_1_STEP,DRV_F1,STEP_INTERFACE,logic input,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_1_DIR,U_MCU,D27,output/DIR,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_1_DIR,DRV_F1,DIR_INTERFACE,logic input,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_2_STEP,U_MCU,D28,output/STEP,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_2_STEP,DRV_F2,STEP_INTERFACE,logic input,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_2_DIR,U_MCU,D29,output/DIR,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_2_DIR,DRV_F2,DIR_INTERFACE,logic input,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_3_STEP,U_MCU,D30,output/STEP,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_3_STEP,DRV_F3,STEP_INTERFACE,logic input,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_3_DIR,U_MCU,D31,output/DIR,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_3_DIR,DRV_F3,DIR_INTERFACE,logic input,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_4_STEP,U_MCU,D32,output/STEP,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_4_STEP,DRV_F4,STEP_INTERFACE,logic input,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_4_DIR,U_MCU,D33,output/DIR,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_4_DIR,DRV_F4,DIR_INTERFACE,logic input,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_5_STEP,U_MCU,D34,output/STEP,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_5_STEP,DRV_F5,STEP_INTERFACE,logic input,5V logic,R,Pass through selected driver logic interface; stepper is a proposed mechanism
-FEED_5_DIR,U_MCU,D35,output/DIR,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_5_DIR,DRV_F5,DIR_INTERFACE,logic input,5V logic,R,Driver input voltage/polarity and mechanism pending
-FEED_ENABLE,U_MCU,D36,output/enable,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-FEED_ENABLE,DRV_F0,ENABLE_INTERFACE,logic input,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-FEED_ENABLE,DRV_F1,ENABLE_INTERFACE,logic input,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-FEED_ENABLE,DRV_F2,ENABLE_INTERFACE,logic input,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-FEED_ENABLE,DRV_F3,ENABLE_INTERFACE,logic input,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-FEED_ENABLE,DRV_F4,ENABLE_INTERFACE,logic input,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-FEED_ENABLE,DRV_F5,ENABLE_INTERFACE,logic input,5V logic,R,Common enable only if compatible; hardware bias must default disabled; polarity unknown
-REWINDER_PWM_OR_STEP,U_MCU,D9,reserved output,5V logic,R,Rewinder motor/driver architecture and supply not chosen
-REWINDER_PWM_OR_STEP,DRV_RW_INTERFACE,PWM_OR_STEP,unknown input,5V logic,R,Rewinder motor/driver architecture and supply not chosen
-REWINDER_DIRECTION,U_MCU,D37,reserved output,5V logic,R,Rewinder motor/driver architecture and supply not chosen
-REWINDER_DIRECTION,DRV_RW_INTERFACE,DIRECTION,unknown input,5V logic,R,Rewinder motor/driver architecture and supply not chosen
-REWINDER_ENABLE,U_MCU,D38,reserved output,5V logic,R,Rewinder motor/driver architecture and supply not chosen
-REWINDER_ENABLE,DRV_RW_INTERFACE,ENABLE,unknown input,5V logic,R,Rewinder motor/driver architecture and supply not chosen
-ACTUATOR_PERMISSION,U_MCU,D39,reserved output,5V logic,R,"Optional common inhibit, not a substitute for individual driver/reset-state design"
-ACTUATOR_PERMISSION,ACTUATOR_PERMISSION_INTERFACE,MCU_INPUT,unknown input,5V logic,R,"Optional common inhibit, not a substitute for individual driver/reset-state design"
-IO_IRQ_MCU,U_MCU,D3,reserved interrupt input,5V logic,R,Combine only compatible configured open-drain IRQ outputs; otherwise separate
-IO_IRQ_MCU,U_GPIO_IN,IRQ,optional output,5V logic,R,Combine only compatible configured open-drain IRQ outputs; otherwise separate
-IO_IRQ_MCU,U_GPIO_OUT,IRQ,optional output,5V logic,R,Combine only compatible configured open-drain IRQ outputs; otherwise separate
-FILAMENT_SENSE_0,S_FILAMENT_0,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_0,U_GPIO_IN,IN0,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_1,S_FILAMENT_1,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_1,U_GPIO_IN,IN1,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_2,S_FILAMENT_2,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_2,U_GPIO_IN,IN2,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_3,S_FILAMENT_3,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_3,U_GPIO_IN,IN3,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_4,S_FILAMENT_4,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_4,U_GPIO_IN,IN4,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_5,S_FILAMENT_5,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_5,U_GPIO_IN,IN5,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_6,S_FILAMENT_6,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_6,U_GPIO_IN,IN6,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_7,S_FILAMENT_7,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_7,U_GPIO_IN,IN7,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_8,S_FILAMENT_8,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_8,U_GPIO_IN,IN8,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_9,S_FILAMENT_9,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_9,U_GPIO_IN,IN9,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_10,S_FILAMENT_10,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_10,U_GPIO_IN,IN10,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_11,S_FILAMENT_11,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-FILAMENT_SENSE_11,U_GPIO_IN,IN11,input,sensor/interface voltage TBD,R,Capacity for two observations per bay; exact stock sensors/count not confirmed
-DOOR_SENSE,S_DOOR,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Door switch type/polarity unknown
-DOOR_SENSE,U_GPIO_IN,IN12,input,sensor/interface voltage TBD,R,Door switch type/polarity unknown
-AUX_SENSE_13,S_AUX_13,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Selector/homing/driver status reserve; add more channels if required
-AUX_SENSE_13,U_GPIO_IN,IN13,input,sensor/interface voltage TBD,R,Selector/homing/driver status reserve; add more channels if required
-AUX_SENSE_14,S_AUX_14,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Selector/homing/driver status reserve; add more channels if required
-AUX_SENSE_14,U_GPIO_IN,IN14,input,sensor/interface voltage TBD,R,Selector/homing/driver status reserve; add more channels if required
-AUX_SENSE_15,S_AUX_15,CONDITIONED_OUT,unknown output,sensor/interface voltage TBD,R,Selector/homing/driver status reserve; add more channels if required
-AUX_SENSE_15,U_GPIO_IN,IN15,input,sensor/interface voltage TBD,R,Selector/homing/driver status reserve; add more channels if required
-ACTUATOR_CTRL_0,U_GPIO_OUT,OUT0,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_0,AUX_POWER_STAGE_0,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_1,U_GPIO_OUT,OUT1,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_1,AUX_POWER_STAGE_1,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_2,U_GPIO_OUT,OUT2,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_2,AUX_POWER_STAGE_2,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_3,U_GPIO_OUT,OUT3,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_3,AUX_POWER_STAGE_3,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_4,U_GPIO_OUT,OUT4,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_4,AUX_POWER_STAGE_4,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_5,U_GPIO_OUT,OUT5,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_5,AUX_POWER_STAGE_5,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_6,U_GPIO_OUT,OUT6,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_6,AUX_POWER_STAGE_6,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_7,U_GPIO_OUT,OUT7,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_7,AUX_POWER_STAGE_7,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_8,U_GPIO_OUT,OUT8,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_8,AUX_POWER_STAGE_8,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_9,U_GPIO_OUT,OUT9,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_9,AUX_POWER_STAGE_9,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_10,U_GPIO_OUT,OUT10,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_10,AUX_POWER_STAGE_10,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_11,U_GPIO_OUT,OUT11,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_11,AUX_POWER_STAGE_11,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_12,U_GPIO_OUT,OUT12,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_12,AUX_POWER_STAGE_12,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_13,U_GPIO_OUT,OUT13,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_13,AUX_POWER_STAGE_13,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_14,U_GPIO_OUT,OUT14,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_14,AUX_POWER_STAGE_14,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_15,U_GPIO_OUT,OUT15,logic output,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-ACTUATOR_CTRL_15,AUX_POWER_STAGE_15,LOGIC_INPUT,unknown input,5V logic,R,Generic auxiliary/coil stage reservation; not a mapped stock solenoid; no direct coil-to-expander connection
-LED_CHANNEL_0,U_LED,CH0,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_0,L_BAY_0,WHITE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_1,U_LED,CH1,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_1,L_BAY_0,BLUE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_2,U_LED,CH2,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_2,L_BAY_1,WHITE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_3,U_LED,CH3,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_3,L_BAY_1,BLUE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_4,U_LED,CH4,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_4,L_BAY_2,WHITE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_5,U_LED,CH5,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_5,L_BAY_2,BLUE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_6,U_LED,CH6,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_6,L_BAY_3,WHITE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_7,U_LED,CH7,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_7,L_BAY_3,BLUE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_8,U_LED,CH8,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_8,L_BAY_4,WHITE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_9,U_LED,CH9,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_9,L_BAY_4,BLUE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_10,U_LED,CH10,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_10,L_BAY_5,WHITE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_11,U_LED,CH11,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_11,L_BAY_5,BLUE,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_15,U_LED,CH15,driver output,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-LED_CHANNEL_15,L_FRAME,LIGHT,load,LED drive voltage/current TBD,R,Logical channels source-confirmed; driver and LED power/wiring pending
-DECOUPLER_LEFT_OPTION,S_DECOUPLER_LEFT,CONDITIONED_ANALOG_OPTION,unknown output,conditioned 0-5V option only,R,"Analog interface is optional hypothesis, not a stock sensor finding"
-DECOUPLER_LEFT_OPTION,U_MCU,A0,reserved analog input,conditioned 0-5V option only,R,"Analog interface is optional hypothesis, not a stock sensor finding"
-DECOUPLER_RIGHT_OPTION,S_DECOUPLER_RIGHT,CONDITIONED_ANALOG_OPTION,unknown output,conditioned 0-5V option only,R,"Analog interface is optional hypothesis, not a stock sensor finding"
-DECOUPLER_RIGHT_OPTION,U_MCU,A1,reserved analog input,conditioned 0-5V option only,R,"Analog interface is optional hypothesis, not a stock sensor finding"
-NFC_SPI_MISO_OPTION,U_MCU,D50,SPI reserve,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_MISO_OPTION,U_NFC_INTERFACE,MISO,unknown,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_MOSI_OPTION,U_MCU,D51,SPI reserve,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_MOSI_OPTION,U_NFC_INTERFACE,MOSI,unknown,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_SCK_OPTION,U_MCU,D52,SPI reserve,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_SCK_OPTION,U_NFC_INTERFACE,SCK,unknown,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_CS_OPTION,U_MCU,D53,SPI reserve,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
-NFC_SPI_CS_OPTION,U_NFC_INTERFACE,CS,unknown,5V logic,R,Only if chosen NFC reader uses SPI; level translation and antenna selection pending
+P24_IN,J_PWR24,PLUS,passive,24V power,R,Separate supply; no identified UMB power contact
+P24_IN,F_MAIN,IN,passive,24V power,R,Separate supply; no identified UMB power contact
+P24_FUSED,F_MAIN,OUT,passive,24V power,R,
+P24_FUSED,F_FAN,IN,passive,24V power,R,
+P24_FUSED,F_LOGIC,IN,passive,24V power,R,
+FAN_24V,F_FAN,OUT,passive,24V fan power,R,Reported rating; verify fan model
+FAN_24V,FAN1,VCC,passive,24V fan power,R,Reported rating; verify fan model
+LOGIC_24V,F_LOGIC,OUT,passive,24V power,R,
+LOGIC_24V,U_PWR5,VIN,passive,24V power,R,
+BOARD_5V,U_PWR5,VOUT,passive,5V regulated power,R,Board power selection and USB backfeed review; not MCU VDD
+BOARD_5V,U_AIR_POWER,EXTERNAL_INPUT,passive,5V regulated power,R,Board power selection and USB backfeed review; not MCU VDD
+BOARD_5V,U_MATERIAL_POWER,EXTERNAL_INPUT,passive,5V regulated power,R,Board power selection and USB backfeed review; not MCU VDD
+BOARD_5V,U_PWM,VCC,passive,5V regulated power,R,Board power selection and USB backfeed review; not MCU VDD
+AIR_BOARD_INPUT,U_AIR_POWER,SELECTED_OUTPUT,passive,board input TBD,H,Confirm exact board power input and regulator requirements
+AIR_BOARD_INPUT,U_AIR,BOARD_POWER_INPUT_TBD,passive,board input TBD,H,Confirm exact board power input and regulator requirements
+AIR_3V3,U_AIR,BOARD_3V3_OUTPUT,passive,3.3V power,R,Review regulator load and sensor/module pullups
+AIR_3V3,U_MUX,VIN,passive,3.3V power,R,Review regulator load and sensor/module pullups
+AIR_3V3,S_C0,VIN,passive,3.3V power,R,Review regulator load and sensor/module pullups
+AIR_3V3,S_C1,VIN,passive,3.3V power,R,Review regulator load and sensor/module pullups
+AIR_3V3,S_C2,VIN,passive,3.3V power,R,Review regulator load and sensor/module pullups
+AIR_3V3,S_C3,VIN,passive,3.3V power,R,Review regulator load and sensor/module pullups
+AIR_ENABLE,U_AIR,PIN_ROLE_ENABLE_TBD,input/pullup,3.3V logic,R,Fixed role; active-low jumper enables this controller only
+AIR_ENABLE,JP_AIR,1,passive,3.3V logic,R,Fixed role; active-low jumper enables this controller only
+AIR_GND,U_AIR,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,JP_AIR,2,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,U_AIR_POWER,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,U_AIR_UMB,MCU_GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,U_MUX,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,S_C0,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,S_C1,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,S_C2,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_GND,S_C3,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+AIR_UART_TX,U_AIR,PIN_UMB_TX_TBD,USART,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+AIR_UART_TX,U_AIR_UMB,MCU_TX_TBD,passive,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+AIR_UART_RX,U_AIR,PIN_UMB_RX_TBD,USART,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+AIR_UART_RX,U_AIR_UMB,MCU_RX_TBD,passive,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+AIR_BOOT_RESET,U_AIR,PIN_BOOT_RESET_TBD,reserved,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+AIR_BOOT_RESET,U_AIR_UMB,BOOT_RESET_TBD,passive,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+AIR_NEXT_ENABLE,U_AIR,PIN_NEXT_ENABLE_TBD,reserved,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+AIR_NEXT_ENABLE,U_AIR_UMB,NEXT_ENABLE_TBD,passive,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+AIR_NEXT_RESET,U_AIR,PIN_NEXT_RESET_TBD,reserved,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+AIR_NEXT_RESET,U_AIR_UMB,NEXT_RESET_TBD,passive,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+AIR_SWDIO,U_AIR,SWDIO_TBD,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+AIR_SWDIO,J_AIR_DEBUG,SWDIO,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+AIR_SWCLK,U_AIR,SWCLK_TBD,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+AIR_SWCLK,J_AIR_DEBUG,SWCLK,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+AIR_NRST,U_AIR,NRST_TBD,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+AIR_NRST,J_AIR_DEBUG,NRST,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+AIR_I2C_SDA,U_AIR,PIN_I2C_SDA_TBD,I2C,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+AIR_I2C_SDA,U_MUX,SDA,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+AIR_I2C_SCL,U_AIR,PIN_I2C_SCL_TBD,I2C,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+AIR_I2C_SCL,U_MUX,SCL,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+AIR_UPSTREAM_UMB,U_AIR_UMB,UPSTREAM_CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+AIR_UPSTREAM_UMB,J_AIR_UPSTREAM,CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+AIR_DOWNSTREAM_UMB,U_AIR_UMB,DOWNSTREAM_CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+AIR_DOWNSTREAM_UMB,J_AIR_DOWNSTREAM,CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+MATERIAL_BOARD_INPUT,U_MATERIAL_POWER,SELECTED_OUTPUT,passive,board input TBD,H,Confirm exact board power input and regulator requirements
+MATERIAL_BOARD_INPUT,U_MATERIAL,BOARD_POWER_INPUT_TBD,passive,board input TBD,H,Confirm exact board power input and regulator requirements
+MATERIAL_3V3,U_MATERIAL,BOARD_3V3_OUTPUT,passive,3.3V power,R,Review regulator load and sensor/module pullups
+MATERIAL_3V3,S_M0,VIN,passive,3.3V power,R,Review regulator load and sensor/module pullups
+MATERIAL_3V3,U_GPIO_IN,VCC,passive,3.3V power,R,Review regulator load and sensor/module pullups
+MATERIAL_3V3,U_GPIO_OUT,VCC,passive,3.3V power,R,Review regulator load and sensor/module pullups
+MATERIAL_ENABLE,U_MATERIAL,PIN_ROLE_ENABLE_TBD,input/pullup,3.3V logic,R,Fixed role; active-low jumper enables this controller only
+MATERIAL_ENABLE,JP_MATERIAL,1,passive,3.3V logic,R,Fixed role; active-low jumper enables this controller only
+MATERIAL_GND,U_MATERIAL,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_GND,JP_MATERIAL,2,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_GND,U_MATERIAL_POWER,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_GND,U_MATERIAL_UMB,MCU_GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_GND,S_M0,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_GND,U_GPIO_IN,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_GND,U_GPIO_OUT,GND,passive,local return,R,External UMB/chassis/PE and high-current return bonds unresolved
+MATERIAL_UART_TX,U_MATERIAL,PIN_UMB_TX_TBD,USART,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+MATERIAL_UART_TX,U_MATERIAL_UMB,MCU_TX_TBD,passive,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+MATERIAL_UART_RX,U_MATERIAL,PIN_UMB_RX_TBD,USART,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+MATERIAL_UART_RX,U_MATERIAL_UMB,MCU_RX_TBD,passive,3.3V logic,H,Review ROM boot UART; external electrical layer unresolved
+MATERIAL_BOOT_RESET,U_MATERIAL,PIN_BOOT_RESET_TBD,reserved,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+MATERIAL_BOOT_RESET,U_MATERIAL_UMB,BOOT_RESET_TBD,passive,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+MATERIAL_NEXT_ENABLE,U_MATERIAL,PIN_NEXT_ENABLE_TBD,reserved,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+MATERIAL_NEXT_ENABLE,U_MATERIAL_UMB,NEXT_ENABLE_TBD,passive,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+MATERIAL_NEXT_RESET,U_MATERIAL,PIN_NEXT_RESET_TBD,reserved,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+MATERIAL_NEXT_RESET,U_MATERIAL_UMB,NEXT_RESET_TBD,passive,3.3V logic,H,Functional reservation only; external reset/BOOT circuitry may be needed
+MATERIAL_SWDIO,U_MATERIAL,SWDIO_TBD,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+MATERIAL_SWDIO,J_MATERIAL_DEBUG,SWDIO,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+MATERIAL_SWCLK,U_MATERIAL,SWCLK_TBD,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+MATERIAL_SWCLK,J_MATERIAL_DEBUG,SWCLK,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+MATERIAL_NRST,U_MATERIAL,NRST_TBD,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+MATERIAL_NRST,J_MATERIAL_DEBUG,NRST,passive,3.3V logic,H,Preserve recovery; exact board routing pending
+MATERIAL_I2C_SDA,U_MATERIAL,PIN_I2C_SDA_TBD,I2C,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SDA,S_M0,SDA,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SDA,U_GPIO_IN,SDA,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SDA,U_GPIO_OUT,SDA,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SDA,U_LED,SDA,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SCL,U_MATERIAL,PIN_I2C_SCL_TBD,I2C,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SCL,S_M0,SCL,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SCL,U_GPIO_IN,SCL,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SCL,U_GPIO_OUT,SCL,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_I2C_SCL,U_LED,SCL,passive,3.3V logic,R,Separate buses; reviewed 3.3V pullups and unique module addresses
+MATERIAL_UPSTREAM_UMB,U_MATERIAL_UMB,UPSTREAM_CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+MATERIAL_UPSTREAM_UMB,J_MATERIAL_UPSTREAM,CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+MATERIAL_DOWNSTREAM_UMB,U_MATERIAL_UMB,DOWNSTREAM_CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+MATERIAL_DOWNSTREAM_UMB,J_MATERIAL_DOWNSTREAM,CONTACTS_UNKNOWN,passive,external UMB unknown,H,"No physical pin numbers, electrical topology or chain order assigned"
+C0_SDA,U_MUX,SD0,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 0
+C0_SDA,S_C0,SDA,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 0
+C0_SCL,U_MUX,SC0,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 0
+C0_SCL,S_C0,SCL,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 0
+C1_SDA,U_MUX,SD1,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 1
+C1_SDA,S_C1,SDA,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 1
+C1_SCL,U_MUX,SC1,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 1
+C1_SCL,S_C1,SCL,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 1
+C2_SDA,U_MUX,SD2,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 2
+C2_SDA,S_C2,SDA,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 2
+C2_SCL,U_MUX,SC2,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 2
+C2_SCL,S_C2,SCL,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 2
+C3_SDA,U_MUX,SD3,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 3
+C3_SDA,S_C3,SDA,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 3
+C3_SCL,U_MUX,SC3,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 3
+C3_SCL,S_C3,SCL,passive,3.3V logic,R,Chamber SHT45 0x44 on mux channel 3
+MUX_ADDRESS,U_MUX,A0_A1_A2_DEFAULT_LOW,passive,3.3V logic,R,0x70; channels 4..7 unused
+MUX_RESET_N,U_AIR,PIN_MUX_RESET_TBD,optional output,3.3V logic,R,Retain module pullup until reviewed
+MUX_RESET_N,U_MUX,RST,passive,3.3V logic,R,Retain module pullup until reviewed
+FAN_PWM_MCU,U_AIR,PIN_FAN_PWM_TBD,timer output,3.3V logic,R,25kHz; fail-state bias and powered-off behavior pending
+FAN_PWM_MCU,U_PWM,INPUT_3V3,passive,3.3V logic,R,25kHz; fail-state bias and powered-off behavior pending
+FAN_PWM,U_PWM,FAN_PWM_OUTPUT,passive,fan logic TBD,R,Conditioned CMOS-compatible driver; verify exact fan input
+FAN_PWM,FAN1,PWM,passive,fan logic TBD,R,Conditioned CMOS-compatible driver; verify exact fan input
+FAN_TACH,FAN1,TACH,passive,conditioned 3.3V tach,R,Open collector; reviewed resistance and sink-current limit
+FAN_TACH,R_TACH_SERIES,IN,passive,conditioned 3.3V tach,R,Open collector; reviewed resistance and sink-current limit
+FAN_TACH,R_TACH_PULLUP,SIGNAL,passive,conditioned 3.3V tach,R,Open collector; reviewed resistance and sink-current limit
+FAN_TACH_PULLUP,U_AIR,BOARD_3V3_OUTPUT,passive,3.3V power,R,
+FAN_TACH_PULLUP,R_TACH_PULLUP,SUPPLY,passive,3.3V power,R,
+FAN_TACH_MCU,R_TACH_SERIES,OUT,passive,3.3V logic,R,
+FAN_TACH_MCU,U_AIR,PIN_TACH_CAPTURE_TBD,capture/interrupt,3.3V logic,R,
+FAN_RETURN,FAN1,GND,passive,fan power return,R,No motor current through sensor/MCU returns; logic reference bond requires review
+FAN_RETURN,U_PWM,GND,passive,fan power return,R,No motor current through sensor/MCU returns; logic reference bond requires review
+FAN_RETURN,J_PWR24,MINUS,passive,fan power return,R,No motor current through sensor/MCU returns; logic reference bond requires review
+ACTUATOR_INPUT,J_ACT_PWR,PLUS,passive,actuator voltage TBD,R,Do not assume 24V before motor/coil ratings
+ACTUATOR_INPUT,F_ACT,IN,passive,actuator voltage TBD,R,Do not assume 24V before motor/coil ratings
+FEED_0_STEP,U_MATERIAL,PIN_FEED_0_STEP_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_0_STEP,DRV_F0,STEP,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_0_DIR,U_MATERIAL,PIN_FEED_0_DIR_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_0_DIR,DRV_F0,DIR,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_0_ENABLE,U_MATERIAL,PIN_FEED_0_ENABLE_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_0_ENABLE,DRV_F0,ENABLE,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_0_ARRIVAL,S_FEED0,ARRIVAL_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_0_ARRIVAL,U_GPIO_IN,FEED_0_ARRIVAL,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_0_EXIT,S_FEED0,EXIT_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_0_EXIT,U_GPIO_IN,FEED_0_EXIT,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_0_POWER,F_ACT,OUT,passive,actuator power TBD,R,
+FEED_0_POWER,DRV_F0,POWER_INPUT,passive,actuator power TBD,R,
+FEED_0_RETURN,J_ACT_PWR,MINUS,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_0_RETURN,DRV_F0,POWER_RETURN,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_1_STEP,U_MATERIAL,PIN_FEED_1_STEP_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_1_STEP,DRV_F1,STEP,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_1_DIR,U_MATERIAL,PIN_FEED_1_DIR_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_1_DIR,DRV_F1,DIR,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_1_ENABLE,U_MATERIAL,PIN_FEED_1_ENABLE_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_1_ENABLE,DRV_F1,ENABLE,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_1_ARRIVAL,S_FEED1,ARRIVAL_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_1_ARRIVAL,U_GPIO_IN,FEED_1_ARRIVAL,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_1_EXIT,S_FEED1,EXIT_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_1_EXIT,U_GPIO_IN,FEED_1_EXIT,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_1_POWER,F_ACT,OUT,passive,actuator power TBD,R,
+FEED_1_POWER,DRV_F1,POWER_INPUT,passive,actuator power TBD,R,
+FEED_1_RETURN,J_ACT_PWR,MINUS,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_1_RETURN,DRV_F1,POWER_RETURN,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_2_STEP,U_MATERIAL,PIN_FEED_2_STEP_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_2_STEP,DRV_F2,STEP,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_2_DIR,U_MATERIAL,PIN_FEED_2_DIR_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_2_DIR,DRV_F2,DIR,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_2_ENABLE,U_MATERIAL,PIN_FEED_2_ENABLE_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_2_ENABLE,DRV_F2,ENABLE,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_2_ARRIVAL,S_FEED2,ARRIVAL_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_2_ARRIVAL,U_GPIO_IN,FEED_2_ARRIVAL,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_2_EXIT,S_FEED2,EXIT_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_2_EXIT,U_GPIO_IN,FEED_2_EXIT,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_2_POWER,F_ACT,OUT,passive,actuator power TBD,R,
+FEED_2_POWER,DRV_F2,POWER_INPUT,passive,actuator power TBD,R,
+FEED_2_RETURN,J_ACT_PWR,MINUS,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_2_RETURN,DRV_F2,POWER_RETURN,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_3_STEP,U_MATERIAL,PIN_FEED_3_STEP_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_3_STEP,DRV_F3,STEP,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_3_DIR,U_MATERIAL,PIN_FEED_3_DIR_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_3_DIR,DRV_F3,DIR,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_3_ENABLE,U_MATERIAL,PIN_FEED_3_ENABLE_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_3_ENABLE,DRV_F3,ENABLE,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_3_ARRIVAL,S_FEED3,ARRIVAL_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_3_ARRIVAL,U_GPIO_IN,FEED_3_ARRIVAL,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_3_EXIT,S_FEED3,EXIT_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_3_EXIT,U_GPIO_IN,FEED_3_EXIT,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_3_POWER,F_ACT,OUT,passive,actuator power TBD,R,
+FEED_3_POWER,DRV_F3,POWER_INPUT,passive,actuator power TBD,R,
+FEED_3_RETURN,J_ACT_PWR,MINUS,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_3_RETURN,DRV_F3,POWER_RETURN,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_4_STEP,U_MATERIAL,PIN_FEED_4_STEP_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_4_STEP,DRV_F4,STEP,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_4_DIR,U_MATERIAL,PIN_FEED_4_DIR_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_4_DIR,DRV_F4,DIR,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_4_ENABLE,U_MATERIAL,PIN_FEED_4_ENABLE_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_4_ENABLE,DRV_F4,ENABLE,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_4_ARRIVAL,S_FEED4,ARRIVAL_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_4_ARRIVAL,U_GPIO_IN,FEED_4_ARRIVAL,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_4_EXIT,S_FEED4,EXIT_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_4_EXIT,U_GPIO_IN,FEED_4_EXIT,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_4_POWER,F_ACT,OUT,passive,actuator power TBD,R,
+FEED_4_POWER,DRV_F4,POWER_INPUT,passive,actuator power TBD,R,
+FEED_4_RETURN,J_ACT_PWR,MINUS,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_4_RETURN,DRV_F4,POWER_RETURN,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_5_STEP,U_MATERIAL,PIN_FEED_5_STEP_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_5_STEP,DRV_F5,STEP,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_5_DIR,U_MATERIAL,PIN_FEED_5_DIR_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_5_DIR,DRV_F5,DIR,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_5_ENABLE,U_MATERIAL,PIN_FEED_5_ENABLE_TBD,reserved output,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_5_ENABLE,DRV_F5,ENABLE,passive,3.3V logic,R,"Proposed six-driver option, not stock motor count; external driver interface"
+FEED_5_ARRIVAL,S_FEED5,ARRIVAL_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_5_ARRIVAL,U_GPIO_IN,FEED_5_ARRIVAL,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_5_EXIT,S_FEED5,EXIT_TBD,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_5_EXIT,U_GPIO_IN,FEED_5_EXIT,passive,3.3V logic,R,Sensor type/count/conditioning unresolved
+FEED_5_POWER,F_ACT,OUT,passive,actuator power TBD,R,
+FEED_5_POWER,DRV_F5,POWER_INPUT,passive,actuator power TBD,R,
+FEED_5_RETURN,J_ACT_PWR,MINUS,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+FEED_5_RETURN,DRV_F5,POWER_RETURN,passive,actuator return,R,Review grounding/logic reference; no assumed direct bond
+REWINDER_DRIVE,U_MATERIAL,PIN_REWINDER_DRIVE_TBD,reserved output,3.3V logic,R,Motor/driver architecture unresolved
+REWINDER_DRIVE,DRV_RW,DRIVE_TBD,passive,3.3V logic,R,Motor/driver architecture unresolved
+REWINDER_DIRECTION,U_MATERIAL,PIN_REWINDER_DIRECTION_TBD,reserved output,3.3V logic,R,Motor/driver architecture unresolved
+REWINDER_DIRECTION,DRV_RW,DIRECTION_TBD,passive,3.3V logic,R,Motor/driver architecture unresolved
+REWINDER_ENABLE,U_MATERIAL,PIN_REWINDER_ENABLE_TBD,reserved output,3.3V logic,R,Motor/driver architecture unresolved
+REWINDER_ENABLE,DRV_RW,ENABLE_TBD,passive,3.3V logic,R,Motor/driver architecture unresolved
+DECOUPLER_LEFT,S_DECOUPLER_LEFT,CONDITIONED_FEEDBACK_TBD,passive,3.3V logic,R,Interface unknown; optional ADC must use reviewed 0..3.3V range
+DECOUPLER_LEFT,U_MATERIAL,PIN_DECOUPLER_LEFT_TBD,reserved input,3.3V logic,R,Interface unknown; optional ADC must use reviewed 0..3.3V range
+DECOUPLER_RIGHT,S_DECOUPLER_RIGHT,CONDITIONED_FEEDBACK_TBD,passive,3.3V logic,R,Interface unknown; optional ADC must use reviewed 0..3.3V range
+DECOUPLER_RIGHT,U_MATERIAL,PIN_DECOUPLER_RIGHT_TBD,reserved input,3.3V logic,R,Interface unknown; optional ADC must use reviewed 0..3.3V range
+DOOR,S_DOOR,CONDITIONED_OUTPUT_TBD,passive,3.3V logic,R,Polarity and fault behavior unresolved
+DOOR,U_GPIO_IN,DOOR_TBD,passive,3.3V logic,R,Polarity and fault behavior unresolved
+DRIVER_FAULT,S_DRIVER_FAULT,CONDITIONED_OUTPUT_TBD,passive,3.3V logic,R,Polarity and fault behavior unresolved
+DRIVER_FAULT,U_GPIO_IN,DRIVER_FAULT_TBD,passive,3.3V logic,R,Polarity and fault behavior unresolved
+SELECTOR_ENDSTOP,S_SELECTOR_ENDSTOP,CONDITIONED_OUTPUT_TBD,passive,3.3V logic,R,Polarity and fault behavior unresolved
+SELECTOR_ENDSTOP,U_GPIO_IN,SELECTOR_ENDSTOP_TBD,passive,3.3V logic,R,Polarity and fault behavior unresolved
+SELECTOR,U_GPIO_OUT,SELECTOR_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+SELECTOR,DRV_SELECTOR,CONTROL_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+SOLENOID,U_GPIO_OUT,SOLENOID_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+SOLENOID,DRV_SOLENOID,CONTROL_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+DRYER_HEATER,U_GPIO_OUT,DRYER_HEATER_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+DRYER_HEATER,DRV_DRYER_HEATER,CONTROL_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+DRYER_FAN,U_GPIO_OUT,DRYER_FAN_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+DRYER_FAN,DRV_DRYER_FAN,CONTROL_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+DRYER_VALVE,U_GPIO_OUT,DRYER_VALVE_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+DRYER_VALVE,DRV_DRYER_VALVE,CONTROL_TBD,passive,3.3V logic,R,External power stage and default inhibit required
+NFC_MISO,U_MATERIAL,PIN_NFC_MISO_TBD,SPI reserve,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_MISO,U_NFC,MISO_TBD,passive,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_MOSI,U_MATERIAL,PIN_NFC_MOSI_TBD,SPI reserve,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_MOSI,U_NFC,MOSI_TBD,passive,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_SCK,U_MATERIAL,PIN_NFC_SCK_TBD,SPI reserve,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_SCK,U_NFC,SCK_TBD,passive,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_CS,U_MATERIAL,PIN_NFC_CS_TBD,SPI reserve,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+NFC_CS,U_NFC,CS_TBD,passive,3.3V logic,R,Only if selected NFC reader uses SPI; antenna selection unresolved
+AIR_TO_MATERIAL_OPTION,U_AIR,PIN_PRIVATE_TX_TBD,passive,3.3V logic,H,"Optional private telemetry link, not UMB; unimplemented"
+AIR_TO_MATERIAL_OPTION,U_MATERIAL,PIN_PRIVATE_RX_TBD,passive,3.3V logic,H,"Optional private telemetry link, not UMB; unimplemented"
+MATERIAL_TO_AIR_OPTION,U_MATERIAL,PIN_PRIVATE_TX_TBD,passive,3.3V logic,H,"Optional private telemetry link, not UMB; unimplemented"
+MATERIAL_TO_AIR_OPTION,U_AIR,PIN_PRIVATE_RX_TBD,passive,3.3V logic,H,"Optional private telemetry link, not UMB; unimplemented"

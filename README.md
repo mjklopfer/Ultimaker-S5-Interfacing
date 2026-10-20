@@ -27,8 +27,8 @@ require validation; see [tested versions](docs/TESTED.md).
 - Read bounded printer endpoints and perform explicitly confirmed writes through
   the catalog. Upload and start are separate actions; uploading may still trigger
   the printer's own queue policy when idle.
-- Review original S5 R1 PCB/serial/GPIO notes and a disabled-by-default Arduino
-  UMB accessory-controller draft.
+- Review original S5 R1 PCB/serial/GPIO notes and a disabled-by-default two-STM32
+  UMB accessory-controller draft with separate Air Manager and Material Station roles.
 - Follow optional developer SSH procedures for Linux/service/device inspection,
   D-Bus diagnostics and actual printer-touchscreen capture.
 

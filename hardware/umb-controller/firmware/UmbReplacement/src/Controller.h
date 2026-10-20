@@ -26,7 +26,7 @@ struct Sample {
   Sample(float t,float h,uint32_t at,bool good):temperatureC(t),humidityRH(h),sampledAtMs(at),valid(good) {}
 };
 struct Environment {
-  Sample samples[5]; // channels 0..3: print chamber; channel 4: material compartment
+  Sample samples[5]; // slots 0..3: Air chamber probes; slot 4: Material-local probe
   uint32_t nowMs = 0;
   static constexpr uint32_t StaleAfterMs = 10000; // proposed policy, not a stock constant
   bool fresh(size_t i) const {

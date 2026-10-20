@@ -16,11 +16,14 @@
     "native_controller_core": "passed",
     "python_reference_tests": 4,
     "arduino_stub_syntax": "passed",
-    "platform_specific_skips": "Two Bash launcher integration tests are skipped on Windows; macOS/Linux CI runs them."
+    "platform_specific_skips": "Two Bash launcher integration tests are skipped on Windows; macOS/Linux CI runs them.",
+    "role_local_sensor_isolation": "passed",
+    "stm32_role_stub_syntax_and_build_guards": "passed"
   },
-  "hardware_validation": "UNTESTED on physical Arduino/S5 accessory hardware",
+  "hardware_validation": "UNTESTED on physical STM32/S5 accessory hardware",
   "desktop_validation": "public-build desktop restart and Mac installation checks pending",
   "live_printer_writes": 0,
   "deployment_helpers": "fixture-tested only; real profile install not performed during publication",
-  "firmware_version_documentation": "exact reference version distinguished from network addresses"
+  "firmware_version_documentation": "exact reference version distinguished from network addresses",
+  "controller_draft_version": "0.2.0"
 }

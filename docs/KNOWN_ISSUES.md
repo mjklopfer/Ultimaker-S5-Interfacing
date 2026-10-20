@@ -43,7 +43,7 @@
   chaining and stock bootstrap remain unresolved. 115200 8E1 proves framing only.
 - Accessory register permissions, delimiter behavior and dynamic indices need actual
   accessory captures. Linux consumer code is not complete accessory MCU firmware.
-- The optional controller is disabled by default and has not passed a real AVR build,
+- The optional two-STM32 controller draft is disabled by default and has not passed real STM32 builds,
   SRAM/timer analysis, fan/motor test, stock enumeration or S5-connected test.
 - Confirm fan model, power and control/tach levels before wiring; an assumed 24 V
   industrial fan does not establish the printer accessory connector's electricals.

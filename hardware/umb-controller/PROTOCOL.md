@@ -108,4 +108,4 @@ Invalid/stale temperature and humidity reads return an error instead of a plausi
 
 ## Explicit exclusions
 
-No UART electrical adapter, RS-232/TTL/RS-485 assumption, bootstrap enumerator, reset/firmware upgrade writer, actual S5 device acceptance, GPIO output driver or printer mechanical procedure is implemented. The stock host may reset/reflash an unexpected device during startup; operational compatibility alone is not a reason to connect an Arduino directly to UMB.
+No UART electrical adapter, RS-232/TTL/RS-485 assumption, bootstrap enumerator, reset/firmware upgrade writer, actual S5 device acceptance, GPIO output driver or printer mechanical procedure is implemented. The stock host may reset/reflash an unexpected device during startup; operational compatibility alone is not a reason to connect either STM32 controller directly to UMB.
