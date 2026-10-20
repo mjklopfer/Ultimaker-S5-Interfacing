@@ -81,7 +81,7 @@ offline tests, an accepted request or a sliced file as proof of a successful pri
 
 ## Release and attribution
 
-Public source release **0.1.6** includes platform deployment guides and original
+Public source release **0.1.7** includes platform deployment guides and original
 install/diagnostic helpers alongside the local bridge.
 See [changelog](CHANGELOG.md), [sanitization policy](docs/SANITIZATION.md),
 [source references](hardware/SOURCES.md), [notices](NOTICE.md) and [MIT license](LICENSE).

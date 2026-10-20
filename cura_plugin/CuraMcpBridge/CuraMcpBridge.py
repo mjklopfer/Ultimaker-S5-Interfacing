@@ -79,7 +79,7 @@ class CuraMcpBridge(QObject, Extension):
             self._snapshot = {
                 "schema_version": 1,
                 "ready": True,
-                "bridge_version": "0.1.6",
+                "bridge_version": "0.1.7",
                 "process_id": os.getpid(),
                 "printer": None,
                 "active_profile": None,

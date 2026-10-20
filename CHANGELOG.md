@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.7
+
+- Reference Cura and printer firmware versions in the setup documentation.
+- Developer SSH capabilities, touchscreen capture and experimental UI-input guidance.
+- Air Manager register formats, observed ranges, units and status values.
+
 ## 0.1.6
 
 - Windows and macOS configuration examples and deployment guides.

@@ -1,6 +1,6 @@
 {
   "name": "ultimaker-s5-interfacing",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "private": true,
   "description": "Local Cura MCP bridge and S5 R1 interface research",
   "type": "module",

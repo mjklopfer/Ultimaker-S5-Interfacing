@@ -1,5 +1,5 @@
 {
-  "public_version": "0.1.6",
+  "public_version": "0.1.7",
   "review_scope": "allowlisted public source and Git history; no raw captures or inherited development commits",
   "personal_identifier_review": "passed",
   "printer_origin_template": "blank; explicit user configuration required",
@@ -12,7 +12,7 @@
   },
   "offline_tests": {
     "node_tests": 5,
-    "python_bridge_tests": 13,
+    "python_bridge_tests": 16,
     "native_controller_core": "passed",
     "python_reference_tests": 4,
     "arduino_stub_syntax": "passed",
@@ -21,5 +21,6 @@
   "hardware_validation": "UNTESTED on physical Arduino/S5 accessory hardware",
   "desktop_validation": "public-build desktop restart and Mac installation checks pending",
   "live_printer_writes": 0,
-  "deployment_helpers": "fixture-tested only; real profile install not performed during publication"
+  "deployment_helpers": "fixture-tested only; real profile install not performed during publication",
+  "firmware_version_documentation": "exact reference version distinguished from network addresses"
 }
