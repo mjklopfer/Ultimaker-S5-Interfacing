@@ -2,6 +2,10 @@
 
 ## Cura bridge
 
+- [ ] Implement selected missing wrappers using the reviewed Cura/Uranium 5.13
+  operations and managers; see [upstream research](UPSTREAM_RESEARCH.md).
+  The Live Scripting plugin is a reference, not an installed solution.
+
 - [ ] Investigate intermittent HTTP 429 from the external MCP connector/SSE probe.
   It occurred before a Cura/printer read could execute; a direct local printer
   HTTP read succeeded. Identify the throttling layer, quota/concurrency conditions,
@@ -46,6 +50,11 @@
   see [touchscreen access](DEVELOPER_TOUCHSCREEN.md).
 
 ## Hardware/controller research
+
+- [ ] Compare installed A20 boot/DTB code with the reviewed sun7i sources and
+  trace any R1 UMB enable circuitry. The i.MX8 drive-enable patch is a related
+  platform clue, not a transferable pin map. Validate data-only microSD boot and
+  mounting separately; job-spool expansion is not automatic.
 
 - Exact external UMB pinout, voltage/signaling standard, electrical isolation,
   chaining and stock bootstrap remain unresolved. 115200 8E1 proves framing only.
