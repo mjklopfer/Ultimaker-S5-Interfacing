@@ -19,10 +19,8 @@ with or supported by UltiMaker.
 - Review original S5 R1 PCB/serial/GPIO notes and a disabled-by-default Arduino
   UMB accessory-controller draft.
 
-No printer address, account, credential, serial number, wireless network, job,
-device image or private workspace history is shipped. Set the printer origin
-explicitly; there is no built-in printer host. Job uploads use a generic owner
-label rather than the workstation hostname.
+Configure your printer address during deployment. See the
+[deployment guide](docs/DEPLOYMENT.md) for setup and connection requirements.
 
 ```text
 MCP client --stdio--> Node MCP server --loopback token--> Cura plugin --> Cura
