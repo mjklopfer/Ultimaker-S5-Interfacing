@@ -22,13 +22,17 @@ Monitor delimiter behavior remains ambiguous; see the [protocol draft](umb-contr
 
 ## Air Manager
 
-| Register | General role | Source-observed consumer access |
-|---|---|---|
-| data.fanSwitchPower.0 | Enable/disable | Read/write |
-| data.fanAirflowSetPoint.0 | Airflow target in cubic metres/hour | Read/write |
-| data.fanSpeedMeasured.0 | RPM feedback | Read |
-| data.fanDutyCycle.0 | Duty feedback; scaling unresolved | Read |
-| data.fanSpeedRatio.0 | Fan condition/speed-ratio feedback | Read |
+| Register | Value representation / units | Known values or limits | Source-observed consumer access |
+|---|---|---|---|
+| data.fanSwitchPower.0 | Integer-like ASCII, unitless | 0 off, 1 on; other states not established | Read/write |
+| data.fanAirflowSetPoint.0 | Numeric ASCII, airflow in m3/h; host calculations include decimals | Host table spans 11.4-48.0; default 48; accepted device bounds/precision unverified | Read/write |
+| data.fanSpeedMeasured.0 | Numeric ASCII, mapped to RPM by the HTTP interface; host feedback is float-oriented | Hardware maximum/resolution and fault values unverified | Read |
+| data.fanDutyCycle.0 | Numeric ASCII; host feedback is float-oriented | Raw scaling/range unverified; do not assume 0-1, 0-100 or 0-255 | Read |
+| data.fanSpeedRatio.0 | Signed integer-oriented ASCII; speed/target ratio in percent with status sentinels | 100 nominal match; 0 blocked; -1 off; -2 settling; -3 zero target; upper bound unverified | Read |
+
+These are host-interface observations, not live accessory acceptance tests. See
+[Air Manager value formats and limits](AIR_MANAGER_VALUES.md) for precision,
+serialization, status interpretation and implementation guidance.
 
 The Linux host selects an airflow target from temperature/material policy and a
 lookup table; this is not simply a commanded PWM percentage. The described host
