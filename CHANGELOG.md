@@ -1,22 +1,16 @@
 # Changelog
 
-## 0.1.6 - platform deployment guidance
+## 0.1.6
 
-- Correct the project title to UltiMaker S5 Interfacing.
-- Add Windows/Mac configuration comparison, separate walkthroughs and blank-origin client templates.
-- Add a staged, backup-preserving plugin installer and privacy-conscious local diagnostic helper.
-- Preserve existing tokens, OS credentials, profiles, printer configuration and write guards.
-- Remove internal baseline wording; retain clear offline/live testing boundaries.
+- Windows and macOS configuration examples and deployment guides.
+- Plugin installer with backup support and local deployment diagnostics.
+- macOS launcher integration tests.
 
-## 0.1.5 - public source release
+## 0.1.5
 
-- Publish original local Cura MCP bridge and optional UMB-controller research in
-  a new repository with no private development history or device captures.
-- Require an explicit printer HTTP origin; reject embedded URL credentials and
-  remove automatic workstation-hostname attribution from queued jobs.
-- Preserve guarded native project Save/Save As, settings/load/slice/export,
-  18 MCP tools and the 161-operation local printer API inventory.
-- Replace private deployment instructions with generic Windows/macOS guidance.
-- Include evidence-labeled R1 hardware notes, source links, known gaps and TODOs.
-- Add privacy checks and offline validation; public-build desktop/hardware tests
-  remain separate follow-up work.
+- Local Cura automation and S5 printer access through 18 MCP tools.
+- Model/project loading, settings, slicing, G-code export and native Save/Save As.
+- S5 R1 interface documentation and experimental Arduino examples.
+
+See [tested versions](docs/TESTED.md) and [known limitations](docs/KNOWN_ISSUES.md).
+Arduino examples are untested on physical hardware.
