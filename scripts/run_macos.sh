@@ -17,6 +17,7 @@ if [[ -z "${CURA_MCP_PYTHON:-}" ]]; then
   done
 fi
 [[ -n "$CURA_MCP_PYTHON" && -x "$CURA_MCP_PYTHON" ]] || { echo "Python 3 is required." >&2; exit 1; }
+"$CURA_MCP_PYTHON" -c 'import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)' || { echo "Python 3.10+ is required." >&2; exit 1; }
 export CURA_MCP_PYTHON
 export CURA_PRINTER_BASE_URL="${CURA_PRINTER_BASE_URL:?Set CURA_PRINTER_BASE_URL to your printer HTTP origin}"
 export CURA_MCP_BRIDGE_CONNECTION_PATH="${CURA_MCP_BRIDGE_CONNECTION_PATH:-$HOME/Library/Application Support/cura/5.13/cura-mcp-bridge.json}"

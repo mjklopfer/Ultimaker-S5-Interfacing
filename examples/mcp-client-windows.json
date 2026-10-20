@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "cura-local": {
+      "command": "C:/path/to/node.exe",
+      "args": ["C:/path/to/checkout/src/server.mjs"],
+      "env": {
+        "CURA_PRINTER_BASE_URL": "",
+        "CURA_MCP_PYTHON": "C:/path/to/python.exe",
+        "CURA_MCP_PRINT_FILE_ROOT": "C:/path/to/print_files"
+      }
+    }
+  }
+}

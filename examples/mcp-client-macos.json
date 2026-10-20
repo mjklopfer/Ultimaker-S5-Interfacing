@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "cura-local": {
+      "command": "/bin/bash",
+      "args": ["/path/to/checkout/scripts/run_macos.sh"],
+      "env": {
+        "CURA_PRINTER_BASE_URL": "",
+        "CURA_MCP_PYTHON": "/path/to/python3",
+        "CURA_MCP_PRINT_FILE_ROOT": "/path/to/print_files"
+      }
+    }
+  }
+}

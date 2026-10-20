@@ -90,3 +90,13 @@ printer. A printer may schedule an uploaded job automatically according to its
 queue policy. Test Save As using a disposable Cura project and a new filename.
 If the native import-conflict dialog appears, resolve it in Cura before assuming
 the requested project is loaded. Inspect state and poll asynchronous saves.
+
+## Platform walkthroughs and helpers
+
+See the [configuration comparison](PLATFORM_CONFIGURATIONS.md),
+[macOS walkthrough](MACOS.md) and [Windows walkthrough](WINDOWS.md).
+`python scripts/install_plugin.py` shows a no-write plan; `--apply` installs only
+the plugin after checking Cura is closed, preserving credentials and profiles.
+`python scripts/check_deployment.py` reports local diagnostic booleans; it never
+contacts the printer. `--check-listener` adds one command-free loopback TCP check.
+Platform-specific client templates keep the printer origin blank.

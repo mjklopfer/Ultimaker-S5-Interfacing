@@ -1,4 +1,4 @@
-# Utilimaker S5 Interfacing
+# UltiMaker S5 Interfacing
 
 A local MCP platform for the **UltiMaker S5** and **Cura**, with a loopback Cura
 plugin, a dependency-free Node stdio MCP server, guarded printer operations, and
@@ -32,7 +32,8 @@ MCP client --stdio--> Node MCP server --loopback token--> Cura plugin --> Cura
 
 ## Start here
 
-1. Read [deployment](docs/DEPLOYMENT.md) and install the plugin while Cura is closed.
+1. Read the [Windows/Mac configuration comparison](docs/PLATFORM_CONFIGURATIONS.md),
+   [macOS guide](docs/MACOS.md), [Windows guide](docs/WINDOWS.md) and [deployment](docs/DEPLOYMENT.md) and install the plugin while Cura is closed.
 2. Set `CURA_PRINTER_BASE_URL`, the staging folder and connection-file path.
 3. Start `node src/server.mjs` through your MCP client's stdio configuration.
 4. Begin with `cura_status` and `printer_api_catalog`. Writes require exact-action
@@ -64,8 +65,8 @@ offline tests, an accepted request or a sliced file as proof of a successful pri
 
 ## Release and attribution
 
-Public source release **0.1.5** derives from a Windows-verified 0.1.4 bridge and
-adds publication privacy/configuration changes. It starts a new Git history.
+Public source release **0.1.6** includes platform deployment guides and original
+install/diagnostic helpers alongside the local bridge.
 See [changelog](CHANGELOG.md), [sanitization policy](docs/SANITIZATION.md),
 [source references](hardware/SOURCES.md), [notices](NOTICE.md) and [MIT license](LICENSE).
 Vendor firmware, recovery images, service source dumps, raw device captures,
