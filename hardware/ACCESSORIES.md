@@ -22,6 +22,11 @@ Monitor delimiter behavior remains ambiguous; see the [protocol draft](umb-contr
 
 ## Air Manager
 
+The [fan identification review](AIR_MANAGER_FAN.md) points to the Noctua NF-F12
+industrialPPC family from manufacturer photos. Exact OEM model/speed and fan-header
+voltage remain unconfirmed. The accessory's nominal UMB supply is documented as
+24 VDC; this does not assign connector contacts or signal levels.
+
 Connection detection includes bootloader discovery, host identity/firmware checks,
 Linux service discovery and an advancing timestamp heartbeat. Filter presence is
 a separate signal. See [startup, identity and health](ACCESSORY_DISCOVERY_AND_HEALTH.md)
