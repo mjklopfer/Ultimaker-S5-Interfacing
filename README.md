@@ -52,8 +52,22 @@ MCP client --stdio--> Node MCP server --loopback token--> Cura plugin --> Cura
 
 See the [18-tool reference](docs/TOOLS.md), [tested versions](docs/TESTED.md),
 [known shortcomings and TODOs](docs/KNOWN_ISSUES.md), and [security/privacy](SECURITY.md).
-The [upstream research map](docs/UPSTREAM_RESEARCH.md) connects open questions to
-reviewed Cura/Uranium, kernel, NFC and hardware references.
+These upstream repositories are particularly relevant to extending the bridge
+and investigating the printer hardware:
+
+| Repository | Why it is useful |
+|---|---|
+| [Cura](https://github.com/Ultimaker/Cura/tree/5.13.0) / [Uranium](https://github.com/Ultimaker/Uranium/tree/5.13.0) | Native APIs for object movement/undo, profile selection, slicing and printer-upload workflows; foundations for additional bridge endpoints. |
+| [CuraLiveScriptingPlugin](https://github.com/Ultimaker/CuraLiveScriptingPlugin) | Examples of accessing Cura settings and application internals. Older SDK/QML and background script execution require review before reuse. |
+| [um-kernel](https://github.com/Ultimaker/um-kernel/tree/master/sun7i) | A20-era device trees, board identification, boot and recovery handling. A separate newer-board UMB drive-enable fix offers a tracing clue, not an R1 pinout. |
+| [UltimakerMarlin](https://github.com/Ultimaker/UltimakerMarlin/tree/S-line) | Motion/heater interfaces and print-core EEPROM command handlers; upstream code must be checked against installed firmware. |
+| [nfc_test](https://github.com/Ultimaker/nfc_test) / [m2m_certificates](https://github.com/Ultimaker/m2m_certificates) | Direct-reader NFC test configuration and NDEF certificate formats; neither establishes the complete Material Station UMB implementation. |
+| [oib_testbench](https://github.com/Ultimaker/oib_testbench) / [Ultimaker3 hardware](https://github.com/Ultimaker/Ultimaker3) | Older interface-board GPIO/loopback and hardware references for tracing related circuitry; not a verified S5 R1 schematic. |
+| [ulticontroller_interface_tester](https://github.com/Ultimaker/ulticontroller_interface_tester) / [framebuffer-vncserver](https://github.com/Ultimaker/framebuffer-vncserver) | Touchscreen diagnostics and remote display/input references; actual S5 UI routing and compatibility still need validation. |
+
+See the [upstream research map](docs/UPSTREAM_RESEARCH.md) for inspected files,
+version references and unresolved questions. These are research references;
+their features are not all implemented or validated by this project.
 Hardware notes start at [S5 R1 interfaces](hardware/S5_R1_INTERFACES.md);
 the [UMB controller](hardware/umb-controller/README.md) is a separate offline draft.
 See [miscellaneous notes](hardware/MISC_NOTES.md) for print-core identity versus
