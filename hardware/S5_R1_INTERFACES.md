@@ -111,6 +111,9 @@ a construction-ready schematic or a replacement for qualified repair guidance.
 
 ## Recovery research boundary
 
+See [miscellaneous service notes](MISC_NOTES.md) for print-core EEPROM identity,
+Cura nozzle settings and the applicability limits of older UM2 board drawings.
+
 The Linux storage and AVR program/EEPROM are separate recovery domains. eMMC user
 area/boot regions, board EEPROM, MCU flash/EEPROM/fuses/lock state and compatible
 boot media must be considered separately. Capturing files is not proof of a
